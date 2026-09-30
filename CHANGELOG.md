@@ -2,6 +2,7 @@
 
 ## 0.9
 
+- Plasma Login Manager support: `install-login.sh` installs the Clay Plasma style and icons system-wide; colors, Inter and wallpaper are applied from System Settings -> Login Screen.
 - Moved the whole theme to the Anthropic palette: Ivory/Slate neutrals, Clay `#D97757` as a sparing accent (color schemes, Plasma controls, icons, mark, splash, wallpapers).
 - Fixed color scheme names: in non-English locales Clay Light/Dark were listed as "Breeze".
 - Fixed inactive window headers falling back to Breeze blue-grey colors.

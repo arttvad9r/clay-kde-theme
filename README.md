@@ -12,6 +12,7 @@ Clay — тёплая минималистичная тема для KDE Plasma 
 - Icon overlay: `clay-icons` с fallback на Breeze
 - Wallpapers: `Clay Field`, `Clay Field Dark`
 - Splash: Light/Dark
+- Login Screen: Plasma Login Manager (см. ниже)
 - Lock Screen: штатный Plasma locker + Clay colors/icons/wallpaper (в Light тёмный текст на светлых обоях)
 - Logout/Shutdown screen: Clay Light/Dark
 - KWin Alt+Tab: `Clay Grid`
@@ -86,6 +87,21 @@ sudo pacman -S inter-font
 ./apply-dark.sh
 ```
 
+## Экран входа (Plasma Login Manager)
+
+Plasma Login Manager не использует QML-темы, как SDDM: экран входа устроен как экран блокировки и берёт цвета, шрифт и обои из настроек, а стиль Plasma и иконки — только из глобально установленных тем. Clay для него ставится отдельно:
+
+```bash
+sudo ./install-login.sh
+```
+
+Скрипт кладёт стиль Plasma и иконки Clay в `/usr/local/share` (не пересекается с pacman). Затем в «Параметры системы → Экран входа»:
+
+1. «Настроить внешний вид…» → обои Clay Field (или Clay Field Dark) → «Применить».
+2. «Применить настройки Plasma…» → «Применить» — переносит цвета, шрифт Inter, курсор и раскладки.
+
+Оба шага просят пароль администратора. После переключения Light/Dark шаг 2 нужно повторить. Удаление: `sudo ./install-login.sh --remove`.
+
 ## Проверка
 
 ```bash
@@ -101,10 +117,6 @@ sudo pacman -S inter-font
 Если Clay активен во время удаления, скрипт сначала переключит Plasma на Breeze, чтобы не удалять используемые компоненты.
 
 ## Что намеренно не входит
-
-### SDDM
-
-Clay не меняет SDDM. Экран входа в систему остаётся системным.
 
 ### Overview
 

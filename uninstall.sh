@@ -40,3 +40,7 @@ if systemctl --user is-active plasma-plasmashell.service >/dev/null 2>&1; then
 fi
 
 echo "Clay files removed from $data_home."
+if [ -d /usr/local/share/icons/clay-icons ] || [ -d /usr/local/share/plasma/desktoptheme/clay ]; then
+  echo "System-wide login screen files are still installed; remove them with:"
+  echo "  sudo $(cd -- "$(dirname -- "$0")" && pwd)/install-login.sh --remove"
+fi
