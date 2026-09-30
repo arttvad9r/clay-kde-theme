@@ -1,0 +1,13 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Artt"
+      }
+    ],
+    "Id": "ClayDark",
+    "License": "CC0-1.0",
+    "Name": "Clay Field Dark",
+    "Version": "0.8"
+  }
+}

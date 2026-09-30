@@ -1,0 +1,17 @@
+{
+  "KPackageStructure": "Plasma/LookAndFeel",
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Artt"
+      }
+    ],
+    "Category": "",
+    "Description": "Clay — warm restrained Plasma desktop",
+    "Id": "org.artt.clay.desktop",
+    "License": "LGPL-2.1-or-later",
+    "Name": "Clay",
+    "Version": "0.8"
+  },
+  "X-Plasma-APIVersion": "2"
+}

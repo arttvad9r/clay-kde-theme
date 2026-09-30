@@ -1,0 +1,8 @@
+[Settings]
+FallbackTheme=clay
+
+[AdaptiveTransparency]
+enabled=false
+
+[ContrastEffect]
+enabled=false

@@ -1,0 +1,13 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Artt"
+      }
+    ],
+    "Id": "Clay",
+    "License": "CC0-1.0",
+    "Name": "Clay Field",
+    "Version": "0.8"
+  }
+}

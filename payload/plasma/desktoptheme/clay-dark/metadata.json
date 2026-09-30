@@ -1,0 +1,17 @@
+{
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Artt"
+      }
+    ],
+    "Category": "",
+    "Description": "Dark companion to the Clay Plasma style",
+    "EnabledByDefault": false,
+    "Id": "clay-dark",
+    "License": "LGPL-2.1-or-later",
+    "Name": "Clay Dark",
+    "Version": "0.8"
+  },
+  "X-Plasma-API": "5.0"
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<defs>
+<style type="text/css" id="current-color-scheme">
+.ColorScheme-Text { color:#2A2722; }
+.ColorScheme-Accent { color:#E66F43; }
+</style>
+</defs>
+<path d="M9.5 5H6.5A2.5 2.5 0 0 0 4 7.5v9A2.5 2.5 0 0 0 6.5 19h3M13 8l4 4-4 4M8.5 12H17"
+ fill="none" stroke="currentColor" class="ColorScheme-Text" opacity=".86"
+ stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

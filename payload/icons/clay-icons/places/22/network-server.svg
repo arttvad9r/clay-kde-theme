@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<defs>
+<style type="text/css" id="current-color-scheme">
+.ColorScheme-Text { color:#2A2722; }
+.ColorScheme-Accent { color:#E66F43; }
+</style>
+</defs>
+
+<rect x="6" y="6" width="20" height="20" rx="3"
+ fill="currentColor" class="ColorScheme-Text" opacity=".07"/>
+<rect x="6" y="6" width="20" height="20" rx="3"
+ fill="none" stroke="currentColor" class="ColorScheme-Text" opacity=".58" stroke-width="1.5"/>
+<path d="M9.5 12h9M9.5 17h9M9.5 22h9" fill="none" stroke="currentColor"
+ class="ColorScheme-Text" opacity=".66" stroke-width="1.35" stroke-linecap="round"/>
+<circle cx="22.5" cy="12" r="1.25" fill="#E66F43" opacity=".9"/>
+<circle cx="22.5" cy="17" r="1.25" fill="currentColor" class="ColorScheme-Text" opacity=".5"/>
+<circle cx="22.5" cy="22" r="1.25" fill="currentColor" class="ColorScheme-Text" opacity=".5"/>
+
+</svg>
