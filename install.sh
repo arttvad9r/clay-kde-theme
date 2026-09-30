@@ -48,6 +48,21 @@ for f in   "$data_home/plasma/look-and-feel/org.artt.clay.desktop/extras/apply-k
   [ -f "$f" ] && chmod +x "$f"
 done
 
+# kitty follows the Plasma light/dark preference through these auto themes.
+if command -v kitty >/dev/null 2>&1; then
+  kitty_dir="${XDG_CONFIG_HOME:-$HOME/.config}/kitty"
+  mkdir -p "$kitty_dir"
+  for pair in light:clay-light dark:clay-dark no-preference:clay-light; do
+    dst="$kitty_dir/${pair%%:*}-theme.auto.conf"
+    if [ -e "$dst" ] && ! grep -q 'clay-kde-theme' "$dst"; then
+      mkdir -p "$backup/kitty"
+      cp -a "$dst" "$backup/kitty/"
+      backed_up=true
+    fi
+    cp "$here/extras/kitty/${pair#*:}.conf" "$dst"
+  done
+fi
+
 if command -v kbuildsycoca6 >/dev/null 2>&1; then
   kbuildsycoca6 --noincremental >/dev/null 2>&1 || true
 fi

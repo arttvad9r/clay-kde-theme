@@ -29,6 +29,12 @@ rm -f   "$data_home/color-schemes/ClayLight.colors"   "$data_home/color-schemes/
 
 rm -rf   "$data_home/plasma/desktoptheme/clay"   "$data_home/plasma/desktoptheme/clay-dark"   "$data_home/plasma/look-and-feel/org.artt.clay.desktop"   "$data_home/plasma/look-and-feel/org.artt.claydark.desktop"   "$data_home/wallpapers/Clay"   "$data_home/wallpapers/ClayDark"   "$data_home/icons/clay-icons"   "$data_home/kwin/tabbox/clay_grid"
 
+for f in "${XDG_CONFIG_HOME:-$HOME/.config}"/kitty/{light,dark,no-preference}-theme.auto.conf; do
+  if [ -f "$f" ] && grep -q 'clay-kde-theme' "$f"; then
+    rm -f "$f"
+  fi
+done
+
 if command -v kbuildsycoca6 >/dev/null 2>&1; then
   kbuildsycoca6 --noincremental >/dev/null 2>&1 || true
 fi

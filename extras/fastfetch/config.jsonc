@@ -1,0 +1,44 @@
+// fastfetch in Clay style — part of clay-kde-theme.
+// Colors are ANSI names, so they follow the kitty Clay Light/Dark palette:
+// Icons: default text color; labels: bold light_red (Clay accent); separator and frame: light_black;
+// values: default text color.
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "kitty-icat",
+    "source": "~/.config/fastfetch/clay-arch.png",
+    "padding": {
+      "top": 3
+    },
+    "height": 14
+  },
+  "display": {
+    "separator": " : ",
+    "color": {
+      "keys": "light_red",
+      "title": "light_red",
+      "separator": "light_black"
+    }
+  },
+  "modules": [
+    { "type": "title", "key": "  ", "format": "{6}{#light_black}{7}{#}{8}" },
+    { "type": "custom", "format": "{#light_black}┌────────────────────────────────────────────────┐" },
+    { "type": "os", "key": "  {#default} {#bold_light_red}OS", "format": "{2}" },
+    { "type": "kernel", "key": "  {#default} {#bold_light_red}Kernel", "format": "{2}" },
+    { "type": "display", "key": "  {#default}󰍹 {#bold_light_red}Display", "format": "{1}x{2} @ {3}Hz [{7}]" },
+    { "type": "terminal", "key": "  {#default} {#bold_light_red}Terminal" },
+    { "type": "wm", "key": "  {#default}󱗃 {#bold_light_red}WM", "format": "{2}" },
+    { "type": "cpu", "key": "  {#default} {#bold_light_red}CPU", "format": "{1} @ {7}" },
+    { "type": "gpu", "key": "  {#default}󰊴 {#bold_light_red}GPU", "format": "{1} {2}" },
+    { "type": "gpu", "key": "  {#default} {#bold_light_red}GPU Driver", "format": "{3}" },
+    { "type": "memory", "key": "  {#default} {#bold_light_red}Memory " },
+    {
+      "type": "command",
+      "key": "  {#default}󱦟 {#bold_light_red}OS Age ",
+      "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+    },
+    { "type": "uptime", "key": "  {#default}󱫐 {#bold_light_red}Uptime " },
+    { "type": "custom", "format": "{#light_black}└────────────────────────────────────────────────┘" },
+    { "type": "colors", "paddingLeft": 2, "symbol": "circle" }
+  ]
+}

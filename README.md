@@ -17,6 +17,8 @@ Clay — тёплая минималистичная тема для KDE Plasma 
 - Logout/Shutdown screen: Clay Light/Dark
 - KWin Alt+Tab: `Clay Grid`
 - Klassy preset/configuration
+- kitty: Clay Light/Dark, переключаются вместе с Plasma
+- fastfetch: конфиг и логотип Arch в стиле Clay (`extras/fastfetch`)
 - Clay launcher mark
 - Clay Dolphin icon
 - Clay folders and system icon overrides (включая XDG-папки: Desktop, Pictures, Public и т.д.)
@@ -86,6 +88,20 @@ sudo pacman -S inter-font
 # или
 ./apply-dark.sh
 ```
+
+## kitty
+
+Если установлен kitty, `install.sh` кладёт `extras/kitty/clay-light.conf` и `clay-dark.conf` в `~/.config/kitty/` как `light-theme.auto.conf`, `dark-theme.auto.conf` и `no-preference-theme.auto.conf`. kitty (≥ 0.38) сам переключает их по светлой/тёмной схеме Plasma — отдельно применять ничего не нужно. Эти файлы перекрывают цвета из `kitty.conf`; чужие `*.auto.conf` сохраняются в бэкап, `uninstall.sh` удаляет только файлы Clay.
+
+## fastfetch
+
+`extras/fastfetch/` — конфиг и логотип Arch в четырёх тонах Clay — Manilla, Kraft, Clay, глубокий Clay (`clay-arch.svg` → `clay-arch.png`). Подписи и заголовок — жирный ANSI `light_red` (Clay), значки — основной цвет текста, рамка и разделитель — `light_black`, поэтому цвета берутся из палитры kitty и переключаются вместе с ней. Конфиг личный, `install.sh` его не ставит:
+
+```bash
+cp extras/fastfetch/config.jsonc extras/fastfetch/clay-arch.png ~/.config/fastfetch/
+```
+
+Логотип выводится через `kitty-icat` в родном размере PNG, поэтому он отрисован высотой 227 px (≈14 строк при 12 pt): `rsvg-convert -h 227 clay-arch.svg -o clay-arch.png`.
 
 ## Экран входа (Plasma Login Manager)
 
