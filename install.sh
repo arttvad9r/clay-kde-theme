@@ -36,8 +36,13 @@ for rel in "${targets[@]}"; do
   fi
 done
 
-mkdir -p "$data_home"
-cp -a "$payload/." "$data_home/"
+# Replace each component as a whole (it was backed up above), so files
+# dropped from the payload don't linger in an upgraded install.
+for rel in "${targets[@]}"; do
+  rm -rf "${data_home:?}/$rel"
+  mkdir -p "$data_home/$(dirname "$rel")"
+  cp -a "$payload/$rel" "$data_home/$rel"
+done
 
 for f in   "$data_home/plasma/look-and-feel/org.artt.clay.desktop/extras/apply-klassy.sh"   "$data_home/plasma/look-and-feel/org.artt.claydark.desktop/extras/apply-klassy.sh"; do
   [ -f "$f" ] && chmod +x "$f"
@@ -47,7 +52,7 @@ if command -v kbuildsycoca6 >/dev/null 2>&1; then
   kbuildsycoca6 --noincremental >/dev/null 2>&1 || true
 fi
 
-echo "Clay 0.8 installed into: $data_home"
+echo "Clay $(tr -d "[:space:]" < "$here/VERSION") installed into: $data_home"
 if "$backed_up"; then
   echo "Existing Clay files were backed up to: $backup"
 else

@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3840 2160">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#F0ECE5"/>
-      <stop offset="1" stop-color="#E4DDD3"/>
+      <stop offset="0" stop-color="#F0EEE6"/>
+      <stop offset="1" stop-color="#E8E6DC"/>
     </linearGradient>
     <mask id="markCut">
       <rect width="64" height="64" fill="white"/>
@@ -11,13 +11,11 @@
   </defs>
   <rect width="3840" height="2160" fill="url(#bg)"/>
   <rect x="2500" y="-250" width="1650" height="900" rx="330"
-        fill="#E18A66" opacity=".52" transform="rotate(-7 2500 -250)"/>
+        fill="#D97757" opacity=".88" transform="rotate(-7 2500 -250)"/>
   <rect x="-460" y="1500" width="1900" height="820" rx="360"
-        fill="#D4C6B9" opacity=".72" transform="rotate(5 -460 1500)"/>
-  <rect x="286" y="246" width="2" height="1180" fill="#2A2722" opacity=".11"/>
-  <circle cx="288" cy="1540" r="7" fill="#E66F43" opacity=".82"/>
-  <g transform="translate(3040 1250) scale(9)" opacity=".16">
-    <rect x="7" y="7" width="50" height="50" rx="15" fill="#2A2722" mask="url(#markCut)"/>
-    <circle cx="49" cy="32" r="4.5" fill="#E66F43"/>
+        fill="#E3DACC" transform="rotate(5 -460 1500)"/>
+  <g transform="translate(3040 1250) scale(9)" opacity=".08">
+    <rect x="7" y="7" width="50" height="50" rx="15" fill="#141413" mask="url(#markCut)"/>
+    <circle cx="49" cy="32" r="4.5" fill="#141413"/>
   </g>
 </svg>

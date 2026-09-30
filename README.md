@@ -2,7 +2,7 @@
 
 Clay — тёплая минималистичная тема для KDE Plasma 6 с отдельными Light/Dark вариантами.
 
-Текущая версия: **0.8**
+Текущая версия: **0.9**
 
 ## Состав
 
@@ -12,32 +12,36 @@ Clay — тёплая минималистичная тема для KDE Plasma 
 - Icon overlay: `clay-icons` с fallback на Breeze
 - Wallpapers: `Clay Field`, `Clay Field Dark`
 - Splash: Light/Dark
-- Lock Screen: штатный Plasma locker + Clay colors/icons/wallpaper
+- Lock Screen: штатный Plasma locker + Clay colors/icons/wallpaper (в Light тёмный текст на светлых обоях)
 - Logout/Shutdown screen: Clay Light/Dark
 - KWin Alt+Tab: `Clay Grid`
 - Klassy preset/configuration
 - Clay launcher mark
 - Clay Dolphin icon
-- Clay folders and system icon overrides
+- Clay folders and system icon overrides (включая XDG-папки: Desktop, Pictures, Public и т.д.)
+- Typography: Inter, если установлен `inter-font`
 
 ## Визуальная система
 
+Палитра построена на публичных цветах Anthropic: тёплый бумажный Ivory, Slate-чернила, тёплые нейтральные серые и Clay как скупой акцент.
+
 Light:
 
-- Canvas: `#F2EFE8`
-- Text: `#2A2722`
-- Identity / focus orange: `#E66F43`
-- Quiet selection: `#E8D7CF`
+- View / Window: Ivory `#FAF9F5` / `#F0EEE6`
+- Text: Slate `#141413`, muted `#5E5D59`
+- Accent (focus, controls, links): Clay `#D97757` / deep `#C6613F`
+- Selection: warm neutral `#E3DACC`
 
 Dark:
 
-- View: `#1F1D1A`
-- Window: `#25221F`
-- Text: `#E8E1D8`
-- Control accent: `#F28B5E`
-- Identity folders/icons remain Clay orange.
+- View / Window: `#1F1E1D` / `#262624`
+- Text: `#F0EEE6`, muted `#B0AEA5`
+- Accent: Clay `#D97757`
+- Selection: `#4A3F3A`
 
-Акцент используется точечно: focus, active controls, folders, launcher, Dolphin, OSD. Большие surfaces и selection намеренно спокойные.
+Иконки: папки из Manilla `#EBDBBC` на Kraft `#D4A27F` с Clay-глифами; файлы — Ivory-листы с цветным глифом по категории (Sky, Olive, Fig, Kraft, Clay); предметы в тёплом сером; системные приложения — бумажные карточки.
+
+Акцент используется точечно: focus, active controls, glyphs, launcher, OSD. Большие поверхности и selection намеренно нейтральные.
 
 ## Требования
 
@@ -57,6 +61,14 @@ Dark:
 - `klassy-settings`
 
 Klassy является обязательной зависимостью для полного внешнего вида окон и Qt Widgets.
+
+Рекомендуется шрифт Inter:
+
+```bash
+sudo pacman -S inter-font
+```
+
+Если Inter установлен, `apply-*.sh` выставляет его как системный шрифт (моноширинный не трогается). Без него тема работает на текущих шрифтах.
 
 ## Установка
 
@@ -106,7 +118,7 @@ Global Theme не пересоздаёт панель и не удаляет п�
 
 `clay-dark` наследует большую часть SVG от `clay`, поэтому Light/Dark не являются двумя независимыми форками Breeze.
 
-`clay-icons` — overlay-theme с `Inherits=breeze`; собственные файлы есть только для наиболее заметных системных иконок.
+`clay-icons` — overlay-theme с `Inherits=breeze`; собственные файлы есть только для наиболее заметных системных иконок. Полноцветные иконки (папки, файлы, корзина, накопители, карточки приложений) генерируются `tools/gen_icons.py` — правьте генератор, а не SVG. Для файлов генератор берёт список имён из установленного Breeze и раскладывает их по категориям симлинками. Символьные иконки действий (`actions/`) нарисованы вручную.
 
 `Clay Grid` основан на штатном KWin Thumbnail Grid и не меняет логику Alt+Tab, только размер и визуальное выделение.
 

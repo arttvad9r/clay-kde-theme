@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 <defs>
 <style type="text/css" id="current-color-scheme">
-.ColorScheme-Text { color:#2A2722; }
-.ColorScheme-Accent { color:#E66F43; }
+.ColorScheme-Text { color:#141413; }
+.ColorScheme-Accent { color:#D97757; }
 </style>
 </defs>
 <path d="M18.8 8.2A8 8 0 1 0 20 14M18.8 8.2V3.8M18.8 8.2h-4.4"

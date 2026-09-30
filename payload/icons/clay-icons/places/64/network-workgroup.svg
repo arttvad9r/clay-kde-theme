@@ -1,15 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-<defs>
-<style type="text/css" id="current-color-scheme">
-.ColorScheme-Text { color:#2A2722; }
-.ColorScheme-Accent { color:#E66F43; }
-</style>
-</defs>
-
-<path d="M9 22.5 16 11l7 11.5M9 22.5h14" fill="none" stroke="currentColor"
- class="ColorScheme-Text" opacity=".5" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="16" cy="10" r="3" fill="#E66F43" opacity=".86"/>
-<circle cx="8.5" cy="23" r="3" fill="currentColor" class="ColorScheme-Text" opacity=".62"/>
-<circle cx="23.5" cy="23" r="3" fill="currentColor" class="ColorScheme-Text" opacity=".62"/>
-
+<rect x="3" y="7.5" width="26" height="19.5" rx="2.6" fill="#D4A27F"/>
+<rect x="3" y="5" width="11" height="5" rx="2" fill="#D4A27F"/>
+<rect x="5" y="9" width="22" height="8" rx="1.4" fill="#FAF9F5"/>
+<rect x="3" y="11.5" width="26" height="15.5" rx="2.6" fill="#EBDBBC"/>
+<g transform="translate(10.25 13.5) scale(0.479167)">
+<g fill="#C6613F"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="18.5" r="3"/><circle cx="19" cy="18.5" r="3"/></g>
+<path d="M12 5 5 18.5h14z" fill="none" stroke="#C6613F" stroke-width="3.548" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
 </svg>

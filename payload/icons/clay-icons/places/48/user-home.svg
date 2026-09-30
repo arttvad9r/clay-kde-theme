@@ -1,18 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-<defs>
-<style type="text/css" id="current-color-scheme">
-.ColorScheme-Text { color:#2A2722; }
-.ColorScheme-Accent { color:#E66F43; }
-</style>
-</defs>
-
-<path d="M6 15.2 16 7l10 8.2v10.3a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 6 25.5z"
- fill="currentColor" class="ColorScheme-Text" opacity=".08"/>
-<path d="M6 15.2 16 7l10 8.2v10.3a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 6 25.5z"
- fill="none" stroke="currentColor" class="ColorScheme-Text" opacity=".58"
- stroke-width="1.5" stroke-linejoin="round"/>
-<path d="M12.8 28v-7.2h6.4V28M9.2 12.6 16 7l4.3 3.5"
- fill="none" stroke="#E66F43" opacity=".9"
- stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-
+<rect x="3" y="7.5" width="26" height="19.5" rx="2.6" fill="#D4A27F"/>
+<rect x="3" y="5" width="11" height="5" rx="2" fill="#D4A27F"/>
+<rect x="5" y="9" width="22" height="8" rx="1.4" fill="#FAF9F5"/>
+<rect x="3" y="11.5" width="26" height="15.5" rx="2.6" fill="#EBDBBC"/>
+<g transform="translate(10.25 13.5) scale(0.479167)">
+<g fill="#C6613F" fill-rule="evenodd"><path d="M12 3 2.8 11.2h2.7v9.3h13v-9.3h2.7zM10 20.5v-5.5h4v5.5z"/></g>
+</g>
 </svg>

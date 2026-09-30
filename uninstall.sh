@@ -15,6 +15,14 @@ if [[ "$current" == "org.artt.clay.desktop" || "$current" == "org.artt.claydark.
   kwriteconfig6 --file kdeglobals --group Icons --key Theme breeze --notify || true
   kwriteconfig6 --file kwinrc --group TabBox --key LayoutName thumbnail_grid || true
   kwriteconfig6 --file ksplashrc --group KSplash --key Theme org.kde.breeze.desktop || true
+  # Drop Inter only if it was set by Clay's apply script.
+  for spec in General:font General:menuFont General:toolBarFont General:smallestReadableFont WM:activeFont; do
+    group="${spec%%:*}" key="${spec#*:}"
+    value="$(kreadconfig6 --file kdeglobals --group "$group" --key "$key" 2>/dev/null || true)"
+    case "$value" in
+      "Inter,"*|"Inter Variable,"*) kwriteconfig6 --file kdeglobals --group "$group" --key "$key" --delete "" || true ;;
+    esac
+  done
 fi
 
 rm -f   "$data_home/color-schemes/ClayLight.colors"   "$data_home/color-schemes/ClayDark.colors"

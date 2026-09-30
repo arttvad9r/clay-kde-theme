@@ -1,23 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-<defs>
-<style type="text/css" id="current-color-scheme">
-.ColorScheme-Text { color:#2A2722; }
-.ColorScheme-Accent { color:#E66F43; }
-</style>
-</defs>
-
-<path d="M3.5 9.5h8.8l2.6 2.6h13.6v13.2a3.2 3.2 0 0 1-3.2 3.2H6.7a3.2 3.2 0 0 1-3.2-3.2z"
- fill="#E66F43" opacity=".58"/>
-<path d="M3.5 9.5h8.8l2.6 2.6h13.6v15.2a2.2 2.2 0 0 1-2.2 2.2H5.7a2.2 2.2 0 0 1-2.2-2.2z"
- fill="none" stroke="#E66F43" opacity=".96"
- stroke-width="1.45" stroke-linejoin="round"/>
-<path d="M4.4 10.3h7.6l2.6 2.6h5.1"
- fill="none" stroke="#E66F43" opacity="1"
- stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M13 21.2h6M14.1 19l3.8 4.4M17.9 19l-3.8 4.4"
- fill="none" stroke="currentColor" class="ColorScheme-Text" opacity=".74"
- stroke-width="1.2" stroke-linecap="round"/>
-<circle cx="13" cy="21.2" r="1.5" fill="#E66F43" opacity=".9"/>
-<circle cx="19" cy="21.2" r="1.5" fill="currentColor" class="ColorScheme-Text" opacity=".72"/>
-<circle cx="16" cy="17.8" r="1.5" fill="currentColor" class="ColorScheme-Text" opacity=".72"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+<rect x="1" y="4" width="20" height="15" rx="2" fill="#D4A27F"/>
+<rect x="1" y="3" width="8.5" height="4" rx="1.5" fill="#D4A27F"/>
+<rect x="2.5" y="5.5" width="17" height="5" rx="1" fill="#FAF9F5"/>
+<rect x="1" y="8" width="20" height="11" rx="2" fill="#EBDBBC"/>
+<g transform="translate(7 9.5) scale(0.333333)">
+<g fill="#C6613F"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="5.5" r="3"/><circle cx="18" cy="18.5" r="3"/></g>
+<path d="M6 12 18 5.5M6 12l12 6.5" fill="none" stroke="#C6613F" stroke-width="3.9" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
 </svg>

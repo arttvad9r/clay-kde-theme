@@ -59,6 +59,30 @@ kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key library org.kde.k
 kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key theme Klassy
 kwriteconfig6 --file kwinrc --group TabBox --key LayoutName clay_grid
 
+# Typography: Inter when installed (Arch: inter-font). Fixed-width font is
+# left alone on purpose.
+inter_family=""
+# Read the whole list first: `grep -q` in a pipe would SIGPIPE fc-list and
+# fail the test under pipefail.
+installed_families="$(fc-list : family | tr ',' '\n')"
+for family in "Inter" "Inter Variable"; do
+  if grep -qx "$family" <<<"$installed_families"; then
+    inter_family="$family"
+    break
+  fi
+done
+if [ -n "$inter_family" ]; then
+  font() { printf '%s,%s,-1,5,%s,0,0,0,0,0,0,0,0,0,0,1' "$inter_family" "$1" "$2"; }
+  kwriteconfig6 --file kdeglobals --group General --key font "$(font 10 400)"
+  kwriteconfig6 --file kdeglobals --group General --key menuFont "$(font 10 400)"
+  kwriteconfig6 --file kdeglobals --group General --key toolBarFont "$(font 10 400)"
+  kwriteconfig6 --file kdeglobals --group General --key smallestReadableFont "$(font 8 400)"
+  kwriteconfig6 --file kdeglobals --group WM --key activeFont "$(font 10 500)" --notify
+  fonts_state="$inter_family"
+else
+  fonts_state="unchanged (install inter-font for Clay typography)"
+fi
+
 kwriteconfig6 --file ksplashrc --group KSplash --key Engine KSplashQML
 kwriteconfig6 --file ksplashrc --group KSplash --key Theme "$lnf"
 
@@ -82,3 +106,4 @@ echo "Color Scheme: $scheme"
 echo "Plasma Style: $plasma_theme"
 echo "Icons: clay-icons"
 echo "Window switcher: clay_grid"
+echo "Fonts: $fonts_state"
