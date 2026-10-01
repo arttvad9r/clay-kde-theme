@@ -48,6 +48,9 @@
         "Name[uk]": "Chris Holland",
         "Name[zh_CN]": "Chris Holland",
         "Name[zh_TW]": "Chris Holland"
+      },
+      {
+        "Name": "Artt"
       }
     ],
     "Description": "Compact warm window switcher for Clay",
@@ -95,7 +98,7 @@
     "Description[zh_TW]": "使用小型縮圖格線的視窗切換器佈局",
     "Icon": "preferences-system-windows-switcher-thumbnail-grid",
     "Id": "clay_grid",
-    "License": "GPL",
+    "License": "GPL-2.0-or-later",
     "Name": "Clay Grid",
     "Name[ar]": "شبكة المصغرات",
     "Name[be]": "Сетка мініяцюр",
@@ -139,7 +142,9 @@
     "Name[uk]": "Таблиця мініатюр",
     "Name[zh_CN]": "缩略图网格",
     "Name[zh_TW]": "縮圖格線",
-    "Version": "0.9"
+    "Version": "1.0",
+    "Website": "https://github.com/arttvad9r/clay-kde-theme",
+    "BugReportUrl": "https://github.com/arttvad9r/clay-kde-theme/issues"
   },
   "X-Plasma-API": "declarativeappletscript"
 }

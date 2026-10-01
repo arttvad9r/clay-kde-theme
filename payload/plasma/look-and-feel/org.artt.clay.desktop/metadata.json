@@ -11,7 +11,9 @@
     "Id": "org.artt.clay.desktop",
     "License": "LGPL-2.1-or-later",
     "Name": "Clay",
-    "Version": "0.9"
+    "Version": "1.0",
+    "Website": "https://github.com/arttvad9r/clay-kde-theme",
+    "BugReportUrl": "https://github.com/arttvad9r/clay-kde-theme/issues"
   },
   "X-Plasma-APIVersion": "2"
 }

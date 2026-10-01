@@ -9,6 +9,7 @@ Warm minimal theme for KDE Plasma 6 (Light/Dark): color schemes, Plasma style, g
 - `tools/gen_plasma_widgets.py` — Plasma style `tasks`, `button`, `lineedit` (9-slice, radius 6; margin hints copied from Breeze). Other widgets are hand-tweaked Breeze copies.
 - `tools/gen_cursors.py` — `clay-cursors` recolored from installed `breeze_cursors` (needs rsvg-convert, magick).
 - `payload/org.kde.syntax-highlighting/themes` — Kate/KWrite themes, selected by `apply.sh`.
+- `build-release.sh` — full tarball plus per-item KDE Store archives in `dist/store/` (`store/ids.json` = store content ids → `X-KPackage-Dependencies` via `tools/store_deps.py`). Publishing steps: `docs/store-listing.md`.
 - `scripts/apply.sh` via `apply-light.sh` / `apply-dark.sh` — switches Plasma settings.
 
 ## Commands
@@ -20,6 +21,8 @@ Warm minimal theme for KDE Plasma 6 (Light/Dark): color schemes, Plasma style, g
 - Measure SVG element bounds as KSvg sees them: build a tiny QSvgRenderer::boundsOnElement tool (no Python Qt bindings installed)
 
 ## Pitfalls
+- Store installs run no scripts: only `contents/defaults` + dependencies apply. Klassy, AccentColor reset, Kate theme, Inter come only from `apply.sh`.
+- Never commit screenshots of a live desktop (personal windows, devices); store previews live in git-ignored `dist/previews`.
 - Plasma 6 tray icons come only from the icon theme (`KDE::icon`); `icons/*.svgz` in a Plasma style are ignored.
 - Monochrome icons use the `ColorScheme-Text` stylesheet class so Plasma recolors them; Clay `#D97757` is a literal accent for warnings/news only.
 - index.theme Context must be a known one (Status, Actions, Applications…); an unknown Context such as `Applets` makes KIconLoader skip the dir.
@@ -28,5 +31,5 @@ Warm minimal theme for KDE Plasma 6 (Light/Dark): color schemes, Plasma style, g
 - install.sh replaces listed paths wholesale: list single files for shared dirs (syntax themes), never the dir.
 
 ## Status
-- Done: v0.9 palette and icon set, Plasma Login Manager, kitty/fastfetch, tray and action icons, KDE app tiles, Plasma tasks/button/lineedit, cursors, Kate themes.
+- Done: v1.0 palette and icon set, Plasma Login Manager, kitty/fastfetch, tray and action icons, KDE app tiles, Plasma tasks/button/lineedit, cursors, Kate themes.
 - Gaps (fall back to Breeze): tray gaps (fall back to Breeze): peripheral batteries (mouse, headset…), RTL variants; mobile generation (LTE…) and power-profile badges are aliased to the plain glyph.

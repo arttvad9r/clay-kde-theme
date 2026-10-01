@@ -2,9 +2,9 @@
     "metadata": {
         "name": "Clay Light",
         "revision": 1,
-        "license": "MIT",
+        "license": "LGPL-2.1-or-later",
         "copyright": [
-            "Clay KDE Theme"
+            "Artt, Clay KDE Theme"
         ]
     },
     "text-styles": {

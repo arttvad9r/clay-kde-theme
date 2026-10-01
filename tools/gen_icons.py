@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate the full-color part of clay-icons.
 
-Design language: matte, opaque paper shapes, no outlines, Anthropic-style
+Design language: matte, opaque paper shapes, no outlines, quiet
 restraint. Folders are manilla paper on a kraft back with clay glyphs; physical
 objects (trash, drives) are warm neutral grey; system apps are slate tiles.
 Clay is an accent only. Colors are opaque so an icon looks the same on Light
@@ -19,7 +19,7 @@ from pathlib import Path
 
 ROOT = Path(os.environ.get("CLAY_ICONS_ROOT") or Path(__file__).resolve().parent.parent / "payload/icons/clay-icons")
 
-# Anthropic palette names.
+# Palette.
 CLAY = "#D97757"
 CLAY_DEEP = "#C6613F"
 KRAFT = "#D4A27F"
@@ -987,7 +987,8 @@ def main():
         write("devices", size, "drive-harddisk-root", drive(root=True))
         write("devices", size, "drive-removable-media", usb())
         write("devices", size, "media-flash-memory", sdcard())
-    for size in (16, 22, 24, 32, 48, 64):
+    # "scalable" serves every size above 64 (Kate's welcome page, About dialogs).
+    for size in (16, 22, 24, 32, 48, 64, "scalable"):
         write("apps", size, "systemsettings", settings())
         alias("apps", size, "preferences-system", "systemsettings")
         write("apps", size, "org.kde.dolphin", dolphin())
@@ -998,7 +999,7 @@ def main():
         for group in PREF_GROUPS.values():
             for name in group:
                 # Small sizes drop the card: a full-size colored glyph reads better in lists.
-                write("apps", size, name, svg(24, glyph("pref:" + name, 12, 12, 21, 1.6)) if size <= 24
+                write("apps", size, name, svg(24, glyph("pref:" + name, 12, 12, 21, 1.6)) if size != "scalable" and size <= 24
                       else tile(glyph("pref:" + name, 16, 16, 17, 1.7)))
         for name, target in PREF_ALIASES.items():
             alias("apps", size, name, target)

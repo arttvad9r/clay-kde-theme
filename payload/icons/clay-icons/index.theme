@@ -5,7 +5,7 @@ Inherits=breeze
 FollowsColorScheme=true
 Example=folder
 KDE-Extensions=.svg
-Directories=places/16,places/22,places/32,places/48,places/64,devices/16,devices/22,devices/32,devices/48,devices/64,actions/16,actions/22,actions/24,actions/32,apps/16,apps/32,apps/48,mimetypes/16,mimetypes/22,mimetypes/scalable,apps/22,apps/24,apps/64,status/scalable,actions/scalable,emblems/scalable,applets/scalable
+Directories=places/16,places/22,places/32,places/48,places/64,devices/16,devices/22,devices/32,devices/48,devices/64,actions/16,actions/22,actions/24,actions/32,apps/16,apps/32,apps/48,mimetypes/16,mimetypes/22,mimetypes/scalable,apps/22,apps/24,apps/64,status/scalable,actions/scalable,emblems/scalable,applets/scalable,apps/scalable
 
 [places/16]
 Size=16
@@ -150,4 +150,11 @@ Size=64
 MinSize=32
 MaxSize=512
 Context=Status
+Type=Scalable
+
+[apps/scalable]
+Size=128
+MinSize=65
+MaxSize=512
+Context=Applications
 Type=Scalable

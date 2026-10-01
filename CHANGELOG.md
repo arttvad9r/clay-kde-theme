@@ -1,11 +1,21 @@
 # Changelog
 
+## 1.0
+
+- Icons: full system tray set (network, battery, volume, notifications, media, Bluetooth, brightness, KDE Connect), ~90 line action icons, launcher categories, System Settings modules, Dolphin emblems, Meta+P OSD, KDE app tiles (Kate, Spectacle, Gwenview, Okular, Ark, KInfoCenter, KDE Connect…), scalable app icons for sizes above 64 px.
+- Plasma style: task manager pills with an accent indicator, rounded buttons and line edits (`tools/gen_plasma_widgets.py`).
+- `clay-cursors`: Breeze cursors recolored (SVG + Xcursor), `tools/gen_cursors.py`.
+- Kate/KWrite syntax themes Clay Light/Dark, selected by the apply scripts.
+- KDE Store packaging: per-item archives in `dist/store/`, optional `X-KPackage-Dependencies`; `docs/store-listing.md`.
+- Licensing: `LICENSE`, `LICENSES/`, full `LICENSES.md`; consistent authors and URLs in metadata; clay_grid declared GPL-2.0-or-later.
+- Removed palette-brand mentions from public text; added `README.en.md`, `AGENTS.md`.
+
 ## 0.9
 
 - fastfetch config and a four-tone Clay Arch logo (`extras/fastfetch`); colors follow the kitty palette.
-- kitty Clay Light/Dark themes (Anthropic palette), installed as kitty auto themes so they follow the Plasma light/dark scheme.
+- kitty Clay Light/Dark themes, installed as kitty auto themes so they follow the Plasma light/dark scheme.
 - Plasma Login Manager support: `install-login.sh` installs the Clay Plasma style and icons system-wide; colors, Inter and wallpaper are applied from System Settings -> Login Screen.
-- Moved the whole theme to the Anthropic palette: Ivory/Slate neutrals, Clay `#D97757` as a sparing accent (color schemes, Plasma controls, icons, mark, splash, wallpapers).
+- Moved the whole theme to a warm paper palette: Ivory/Slate neutrals, Clay `#D97757` as a sparing accent (color schemes, Plasma controls, icons, mark, splash, wallpapers).
 - Fixed color scheme names: in non-English locales Clay Light/Dark were listed as "Breeze".
 - Fixed inactive window headers falling back to Breeze blue-grey colors.
 - Light lock screen: Complementary colors are now light, so the clock is dark on the light wallpaper.
