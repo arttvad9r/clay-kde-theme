@@ -32,7 +32,6 @@ required=(
   plasma-apply-wallpaperimage
   kwriteconfig6
   kbuildsycoca6
-  klassy-settings
 )
 for cmd in "${required[@]}"; do
   command -v "$cmd" >/dev/null 2>&1 || {
@@ -55,10 +54,10 @@ kwriteconfig6 --file kdeglobals --group General --key accentColorFromWallpaper f
 plasma-apply-lookandfeel -a "$lnf"
 plasma-apply-colorscheme "$scheme"
 
-kwriteconfig6 --file kdeglobals --group KDE --key widgetStyle Klassy
+kwriteconfig6 --file kdeglobals --group KDE --key widgetStyle Breeze
 kwriteconfig6 --file kdeglobals --group Icons --key Theme clay-icons --notify
-kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key library org.kde.klassy
-kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key theme Klassy
+kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key library org.kde.breeze
+kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key theme Breeze
 kwriteconfig6 --file kwinrc --group TabBox --key LayoutName clay_grid
 if command -v plasma-apply-cursortheme >/dev/null 2>&1; then
   plasma-apply-cursortheme clay-cursors >/dev/null
@@ -99,8 +98,6 @@ done
 kwriteconfig6 --file ksplashrc --group KSplash --key Engine KSplashQML
 kwriteconfig6 --file ksplashrc --group KSplash --key Theme "$lnf"
 
-"$data_home/plasma/look-and-feel/$lnf/extras/apply-klassy.sh"
-
 plasma-apply-wallpaperimage   "$data_home/wallpapers/$wallpaper/contents/images/3840x2160.png"
 
 kbuildsycoca6 --noincremental >/dev/null 2>&1 || true
@@ -118,6 +115,7 @@ echo "Global Theme: $lnf"
 echo "Color Scheme: $scheme"
 echo "Plasma Style: $plasma_theme"
 echo "Icons: clay-icons"
+echo "Widget style / decoration: Breeze"
 echo "Cursors: clay-cursors"
 echo "Editor theme: $editor_theme"
 echo "Window switcher: clay_grid"

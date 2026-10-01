@@ -8,13 +8,13 @@ documentation; this is the short version.
 
 Global Themes `Clay` / `Clay Dark`, color schemes, Plasma styles, an icon theme on top of Breeze
 (folders, files, ~90 action icons, the system tray, System Settings, Dolphin emblems, KDE apps),
-cursors, wallpapers, splash/lock/logout screens, an Alt+Tab grid, Kate/KWrite themes, a
-Klassy preset, and kitty/fastfetch extras. Plasma Login Manager is supported (`install-login.sh`).
+cursors, wallpapers, splash/lock/logout screens, an Alt+Tab grid, Kate/KWrite themes, and
+kitty/fastfetch extras. Plasma Login Manager is supported (`install-login.sh`).
 
 ## Requirements
 
-KDE Plasma 6.7+ (tested on 6.7.5, Wayland) and [Klassy](https://github.com/paulmcauley/klassy)
-(window decoration and style). Optional: the Inter font.
+KDE Plasma 6.7+ (tested on 6.7.5, Wayland). Widget style and window decoration are the stock
+Breeze, nothing else to install. Optional: the Inter font.
 
 ## Install
 

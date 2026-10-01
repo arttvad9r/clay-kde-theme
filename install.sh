@@ -47,10 +47,6 @@ for rel in "${targets[@]}"; do
   cp -a "$payload/$rel" "$data_home/$rel"
 done
 
-for f in   "$data_home/plasma/look-and-feel/org.artt.clay.desktop/extras/apply-klassy.sh"   "$data_home/plasma/look-and-feel/org.artt.claydark.desktop/extras/apply-klassy.sh"; do
-  [ -f "$f" ] && chmod +x "$f"
-done
-
 # kitty follows the Plasma light/dark preference through these auto themes.
 if command -v kitty >/dev/null 2>&1; then
   kitty_dir="${XDG_CONFIG_HOME:-$HOME/.config}/kitty"

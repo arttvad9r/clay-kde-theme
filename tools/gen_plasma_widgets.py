@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Generate Clay Plasma style frames: tasks, button and lineedit.
 
-Frames are 9-slice sets of pieces drawn from rounded rects, radius 6 to match
-Klassy windows and Qt widgets. Colors come from ColorScheme classes, so one file
-serves Clay and Clay Dark (clay-dark falls back to clay). Content margins
+Frames are 9-slice sets of pieces drawn from rounded rects, radius 6.
+Colors come from ColorScheme classes, so one file serves Clay and Clay Dark (clay-dark falls back to clay). Content margins
 (-hint-*-margin) keep Breeze's values so layouts don't move.
 
 Tasks: a rounded pill inset from the panel edges with a bar on the screen-side

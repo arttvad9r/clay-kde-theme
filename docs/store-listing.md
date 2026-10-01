@@ -17,8 +17,8 @@ Publish at store.kde.org (Pling), logged in as the author. Archives are built by
 
 | Archive | Store category | License | Dependencies of the item |
 |---|---|---|---|
-| `org.artt.clay.desktop-<v>.tar.gz` | Global Themes (Plasma 6) | LGPL-2.1-or-later | Klassy (not installable from the store) |
-| `org.artt.claydark.desktop-<v>.tar.gz` | Global Themes (Plasma 6) | LGPL-2.1-or-later | Klassy |
+| `org.artt.clay.desktop-<v>.tar.gz` | Global Themes (Plasma 6) | LGPL-2.1-or-later | none (Breeze widget style and decoration ship with Plasma) |
+| `org.artt.claydark.desktop-<v>.tar.gz` | Global Themes (Plasma 6) | LGPL-2.1-or-later | none |
 | `clay-plasma-style-<v>.tar.gz`, `clay-dark-plasma-style-<v>.tar.gz` | Plasma Theme | LGPL-2.1-or-later | none |
 | `clay-color-schemes-<v>.tar.gz` | KDE Color Scheme | LGPL-2.1-or-later | none |
 | `clay-icons-<v>.tar.gz` | KDE Icon Theme | LGPL-2.1-or-later | Breeze icons (inherited) |
@@ -26,7 +26,7 @@ Publish at store.kde.org (Pling), logged in as the author. Archives are built by
 | `clay-wallpapers-<v>.tar.gz` | KDE Wallpaper (other) | CC0-1.0 | none |
 | `clay-grid-<v>.tar.gz` | Kwin Switching Layouts Plasma 6 | GPL-2.0-or-later | none |
 
-Not in the store (no category): Klassy preset, Kate/KWrite syntax themes, kitty, fastfetch, the
+Not in the store (no category): Kate/KWrite syntax themes, kitty, fastfetch, the
 Plasma Login Manager theme. They stay on GitHub and are installed by `install.sh`.
 
 ## Description (English, for every item; trim per item)
@@ -45,11 +45,11 @@ controls. One consistent visual language from the panel to the file manager:
 - Alt+Tab grid switcher
 - Kate/KWrite syntax themes and kitty themes (GitHub)
 
-**Requires:** KDE Plasma 6.7+ (tested on 6.7.5, Wayland) and the Klassy window decoration and
-style. Without Klassy windows fall back to the default decoration. The Inter font is optional.
+**Requires:** KDE Plasma 6.7+ (tested on 6.7.5, Wayland). Uses the stock Breeze widget style and
+window decoration, nothing else to install. The Inter font is optional.
 
 **Apply:** System Settings → Appearance → Global Theme → Clay or Clay Dark. For the full setup
-(Klassy preset, Inter, Kate and kitty themes) use the scripts at
+(Inter, the Kate theme, kitty) use the scripts at
 https://github.com/arttvad9r/clay-kde-theme
 
 Independent community theme, not affiliated with KDE. Built from Breeze components (LGPL).

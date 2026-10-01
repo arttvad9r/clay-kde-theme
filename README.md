@@ -18,7 +18,6 @@ English summary: [README.en.md](README.en.md). Публикация в KDE Store
 - Lock Screen: штатный Plasma locker + Clay colors/icons/wallpaper (в Light тёмный текст на светлых обоях)
 - Logout/Shutdown screen: Clay Light/Dark
 - KWin Alt+Tab: `Clay Grid`
-- Klassy preset/configuration
 - kitty: Clay Light/Dark, переключаются вместе с Plasma
 - fastfetch: конфиг и логотип Arch в стиле Clay (`extras/fastfetch`)
 - Clay launcher mark
@@ -27,7 +26,7 @@ English summary: [README.en.md](README.en.md). Публикация в KDE Store
 - Clay system tray icons: уведомления, буфер обмена, плеер, громкость, микрофон, Wi‑Fi/Ethernet/мобильная сеть/VPN, режим полёта, Bluetooth, яркость/ночной свет, батарея и профили питания, запрет сна, KDE Connect
 - Clay Settings icons: модули «Параметров системы» по группам (Clay, Kraft, Sky, Olive, Fig), значки-наложения Dolphin, экран Meta+P
 - Clay action icons: ~90 линейных иконок кнопок и тулбаров (правка, навигация, вид, медиа, диалоги) и категории меню запуска
-- Plasma style: панель задач, кнопки и поля ввода со скруглением 6 px, как у Klassy
+- Plasma style: панель задач, кнопки и поля ввода со скруглением 6 px
 - Cursors: `clay-cursors` — курсоры Breeze в палитре Clay (SVG для Wayland + Xcursor 24/36/48)
 - Kate/KWrite: темы подсветки `Clay Light` / `Clay Dark`, переключаются вместе с Plasma
 - Typography: Inter, если установлен `inter-font`
@@ -60,7 +59,6 @@ Dark:
 
 - KDE Plasma 6.7.5
 - KWin 6.7.5 / Wayland
-- Klassy 6.7.3
 
 Нужны команды:
 
@@ -69,9 +67,8 @@ Dark:
 - `plasma-apply-wallpaperimage`
 - `kwriteconfig6`
 - `kbuildsycoca6`
-- `klassy-settings`
 
-Klassy является обязательной зависимостью для полного внешнего вида окон и Qt Widgets.
+Стиль виджетов и декорация окон — штатный Breeze (ставится с Plasma), цвета, иконки, курсоры и Plasma style — Clay. Ничего, кроме Plasma, ставить не нужно.
 
 Рекомендуется шрифт Inter:
 

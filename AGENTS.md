@@ -1,6 +1,6 @@
 # Clay KDE Theme
 
-Warm minimal theme for KDE Plasma 6 (Light/Dark): color schemes, Plasma style, global themes, icon overlay, cursors, Kate syntax themes, wallpapers, splash, logout, KWin Alt+Tab, Klassy preset, kitty/fastfetch extras. User-facing docs are in `README.md` (Russian).
+Warm minimal theme for KDE Plasma 6 (Light/Dark): color schemes, Plasma style, global themes, icon overlay, cursors, Kate syntax themes, wallpapers, splash, logout, KWin Alt+Tab, optional kitty/fastfetch extras. User-facing docs are in `README.md` (Russian).
 
 ## Layout
 - `payload/` — everything installed into `~/.local/share` (`install.sh` replaces each component wholesale, with a backup).
@@ -10,7 +10,7 @@ Warm minimal theme for KDE Plasma 6 (Light/Dark): color schemes, Plasma style, g
 - `tools/gen_cursors.py` — `clay-cursors` recolored from installed `breeze_cursors` (needs rsvg-convert, magick).
 - `payload/org.kde.syntax-highlighting/themes` — Kate/KWrite themes, selected by `apply.sh`.
 - `build-release.sh` — full tarball plus per-item KDE Store archives in `dist/store/` (`store/ids.json` = store content ids → `X-KPackage-Dependencies` via `tools/store_deps.py`). Publishing steps: `docs/store-listing.md`.
-- `scripts/apply.sh` via `apply-light.sh` / `apply-dark.sh` — switches Plasma settings.
+- `scripts/apply.sh` via `apply-light.sh` / `apply-dark.sh` — switches Plasma settings. Widget style and window decoration are stock Breeze (set in the Global Themes `defaults` and by `apply.sh`).
 
 ## Commands
 - Regenerate: `python3 tools/gen_icons.py`, `python3 tools/gen_plasma_widgets.py`, `python3 tools/gen_cursors.py`
@@ -22,7 +22,7 @@ Warm minimal theme for KDE Plasma 6 (Light/Dark): color schemes, Plasma style, g
 
 ## Pitfalls
 - Splash (`ksplashqml`): stages arrive in order, 6 = desktop ready and the process exits; stage 5 comes BEFORE the desktop is drawn, and the window is transparent. Never fade the whole root at stage 5 (black flash between splash and desktop); keep it opaque, fade only content. Test: `ksplashqml --test --nofork <lnf dir> &` (stage +1 every 2 s) and screenshot around stage 5.
-- Store installs run no scripts: only `contents/defaults` + dependencies apply. Klassy, AccentColor reset, Kate theme, Inter come only from `apply.sh`.
+- Store installs run no scripts: only `contents/defaults` + dependencies apply. AccentColor reset, Kate theme, Inter come only from `apply.sh`.
 - Never commit screenshots of a live desktop (personal windows, devices); store previews live in git-ignored `dist/previews`.
 - Plasma 6 tray icons come only from the icon theme (`KDE::icon`); `icons/*.svgz` in a Plasma style are ignored.
 - Monochrome icons use the `ColorScheme-Text` stylesheet class so Plasma recolors them; Clay `#D97757` is a literal accent for warnings/news only.
