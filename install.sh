@@ -20,6 +20,9 @@ targets=(
   "wallpapers/Clay"
   "wallpapers/ClayDark"
   "icons/clay-icons"
+  "icons/clay-cursors"
+  "org.kde.syntax-highlighting/themes/clay-light.theme"
+  "org.kde.syntax-highlighting/themes/clay-dark.theme"
   "kwin/tabbox/clay_grid"
 )
 

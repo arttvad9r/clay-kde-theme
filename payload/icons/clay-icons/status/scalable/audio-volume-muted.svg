@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<defs>
+<style type="text/css" id="current-color-scheme">
+.ColorScheme-Text { color:#141413; }
+.ColorScheme-NeutralText { color:#A06A2C; }
+.ColorScheme-NegativeText { color:#B5473A; }
+</style>
+</defs>
+<path d="M3.5 9.5h3l4.5-4v13l-4.5-4h-3z" fill="none" stroke="currentColor" class="ColorScheme-Text" opacity="0.86" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15 9.5l5 5M20 9.5l-5 5" fill="none" stroke="currentColor" class="ColorScheme-Text" opacity="0.86" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

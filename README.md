@@ -20,8 +20,14 @@ Clay — тёплая минималистичная тема для KDE Plasma 
 - kitty: Clay Light/Dark, переключаются вместе с Plasma
 - fastfetch: конфиг и логотип Arch в стиле Clay (`extras/fastfetch`)
 - Clay launcher mark
-- Clay Dolphin icon
+- Clay app tiles: Dolphin, Параметры системы, Kate, KWrite, Spectacle, Gwenview, Okular, Ark, О системе, KDE Connect, эмодзи
 - Clay folders and system icon overrides (включая XDG-папки: Desktop, Pictures, Public и т.д.)
+- Clay system tray icons: уведомления, буфер обмена, плеер, громкость, микрофон, Wi‑Fi/Ethernet/мобильная сеть/VPN, режим полёта, Bluetooth, яркость/ночной свет, батарея и профили питания, запрет сна, KDE Connect
+- Clay Settings icons: модули «Параметров системы» по группам (Clay, Kraft, Sky, Olive, Fig), значки-наложения Dolphin, экран Meta+P
+- Clay action icons: ~90 линейных иконок кнопок и тулбаров (правка, навигация, вид, медиа, диалоги) и категории меню запуска
+- Plasma style: панель задач, кнопки и поля ввода со скруглением 6 px, как у Klassy
+- Cursors: `clay-cursors` — курсоры Breeze в палитре Clay (SVG для Wayland + Xcursor 24/36/48)
+- Kate/KWrite: темы подсветки `Clay Light` / `Clay Dark`, переключаются вместе с Plasma
 - Typography: Inter, если установлен `inter-font`
 
 ## Визуальная система
@@ -146,7 +152,7 @@ Global Theme не пересоздаёт панель и не удаляет п�
 
 `clay-dark` наследует большую часть SVG от `clay`, поэтому Light/Dark не являются двумя независимыми форками Breeze.
 
-`clay-icons` — overlay-theme с `Inherits=breeze`; собственные файлы есть только для наиболее заметных системных иконок. Полноцветные иконки (папки, файлы, корзина, накопители, карточки приложений) генерируются `tools/gen_icons.py` — правьте генератор, а не SVG. Для файлов генератор берёт список имён из установленного Breeze и раскладывает их по категориям симлинками. Символьные иконки действий (`actions/`) нарисованы вручную.
+`clay-icons` — overlay-theme с `Inherits=breeze`; собственные файлы есть только для наиболее заметных системных иконок. Полноцветные иконки (папки, файлы, корзина, накопители, карточки приложений) генерируются `tools/gen_icons.py` — правьте генератор, а не SVG. Для файлов генератор берёт список имён из установленного Breeze и раскладывает их по категориям симлинками. Символьные иконки действий (`actions/`) нарисованы вручную. Монохромные иконки системного трея (`status/scalable`) тоже генерируются `tools/gen_icons.py`: Plasma 6 берёт их только из icon theme (`icons/*.svgz` Plasma style не используется), поэтому они лежат здесь, а не в `desktoptheme`.
 
 `Clay Grid` основан на штатном KWin Thumbnail Grid и не меняет логику Alt+Tab, только размер и визуальное выделение.
 

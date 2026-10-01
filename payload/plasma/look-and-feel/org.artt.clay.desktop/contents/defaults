@@ -2,7 +2,7 @@
 Image=Clay
 
 [kcminputrc][Mouse]
-cursorTheme=breeze_cursors
+cursorTheme=clay-cursors
 
 [kdeglobals][General]
 ColorScheme=ClayLight

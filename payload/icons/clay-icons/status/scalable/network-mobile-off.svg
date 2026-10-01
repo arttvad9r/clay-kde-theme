@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<defs>
+<style type="text/css" id="current-color-scheme">
+.ColorScheme-Text { color:#141413; }
+.ColorScheme-NeutralText { color:#A06A2C; }
+.ColorScheme-NegativeText { color:#B5473A; }
+</style>
+</defs>
+<path d="M4.2 16h.4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-.4a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1z" fill="currentColor" class="ColorScheme-Text" opacity="0.258"/>
+<path d="M8.4 12h.4a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-.4a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1z" fill="currentColor" class="ColorScheme-Text" opacity="0.258"/>
+<path d="M12.6 8h.4a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-.4a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z" fill="currentColor" class="ColorScheme-Text" opacity="0.258"/>
+<path d="M16.8 4h.4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-.4a1 1 0 0 1-1-1v-14a1 1 0 0 1 1-1z" fill="currentColor" class="ColorScheme-Text" opacity="0.258"/>
+<path d="M4 4l16 16" fill="none" stroke="currentColor" class="ColorScheme-Text" opacity="0.86" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

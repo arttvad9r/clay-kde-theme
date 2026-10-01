@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<defs>
+<style type="text/css" id="current-color-scheme">
+.ColorScheme-Text { color:#141413; }
+.ColorScheme-NeutralText { color:#A06A2C; }
+.ColorScheme-NegativeText { color:#B5473A; }
+</style>
+</defs>
+<circle cx="12" cy="5.5" r="1.5" fill="currentColor" class="ColorScheme-Text" opacity="0.86"/>
+<circle cx="12" cy="12" r="1.5" fill="currentColor" class="ColorScheme-Text" opacity="0.86"/>
+<circle cx="12" cy="18.5" r="1.5" fill="currentColor" class="ColorScheme-Text" opacity="0.86"/>
+</svg>

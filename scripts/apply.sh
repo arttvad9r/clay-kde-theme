@@ -11,12 +11,14 @@ case "$variant" in
     scheme="ClayLight"
     plasma_theme="clay"
     wallpaper="Clay"
+    editor_theme="Clay Light"
     ;;
   dark)
     lnf="org.artt.claydark.desktop"
     scheme="ClayDark"
     plasma_theme="clay-dark"
     wallpaper="ClayDark"
+    editor_theme="Clay Dark"
     ;;
   *)
     echo "Usage: $0 light|dark" >&2
@@ -58,6 +60,11 @@ kwriteconfig6 --file kdeglobals --group Icons --key Theme clay-icons --notify
 kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key library org.kde.klassy
 kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key theme Klassy
 kwriteconfig6 --file kwinrc --group TabBox --key LayoutName clay_grid
+if command -v plasma-apply-cursortheme >/dev/null 2>&1; then
+  plasma-apply-cursortheme clay-cursors >/dev/null
+else
+  kwriteconfig6 --file kcminputrc --group Mouse --key cursorTheme clay-cursors --notify
+fi
 
 # Typography: Inter when installed (Arch: inter-font). Fixed-width font is
 # left alone on purpose.
@@ -83,6 +90,12 @@ else
   fonts_state="unchanged (install inter-font for Clay typography)"
 fi
 
+# Kate/KWrite: Clay syntax theme instead of the automatic Breeze pick.
+for rc in katerc kwriterc; do
+  kwriteconfig6 --file "$rc" --group "KTextEditor Renderer" --key "Auto Color Theme Selection" false
+  kwriteconfig6 --file "$rc" --group "KTextEditor Renderer" --key "Color Theme" "$editor_theme"
+done
+
 kwriteconfig6 --file ksplashrc --group KSplash --key Engine KSplashQML
 kwriteconfig6 --file ksplashrc --group KSplash --key Theme "$lnf"
 
@@ -105,5 +118,7 @@ echo "Global Theme: $lnf"
 echo "Color Scheme: $scheme"
 echo "Plasma Style: $plasma_theme"
 echo "Icons: clay-icons"
+echo "Cursors: clay-cursors"
+echo "Editor theme: $editor_theme"
 echo "Window switcher: clay_grid"
 echo "Fonts: $fonts_state"
