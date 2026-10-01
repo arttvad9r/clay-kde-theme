@@ -22,7 +22,7 @@ Rectangle {
         opacity: 0
         scale: 0.94
 
-        Component.onCompleted: intro.start()
+        Component.onCompleted: if (root.stage < 5) intro.start()
 
         ParallelAnimation {
             id: intro
@@ -76,8 +76,18 @@ Rectangle {
         }
     }
 
-    opacity: stage >= 5 ? 0 : 1
-    Behavior on opacity {
-        NumberAnimation { duration: 320; easing.type: Easing.InOutQuad }
+    // The window stays opaque until ksplash exits (stage 6, desktop ready):
+    // stage 5 arrives while Plasma is still building the desktop, and a
+    // transparent splash there would show a black screen. Only the content
+    // fades out, like the Breeze splash.
+    onStageChanged: if (stage >= 5) outro.start()
+
+    NumberAnimation {
+        id: outro
+        target: content
+        property: "opacity"
+        to: 0
+        duration: 320
+        easing.type: Easing.InOutQuad
     }
 }

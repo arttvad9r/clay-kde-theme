@@ -8,6 +8,7 @@
 - Kate/KWrite syntax themes Clay Light/Dark, selected by the apply scripts.
 - KDE Store packaging: per-item archives in `dist/store/`, optional `X-KPackage-Dependencies`; `docs/store-listing.md`.
 - Licensing: `LICENSE`, `LICENSES/`, full `LICENSES.md`; consistent authors and URLs in metadata; clay_grid declared GPL-2.0-or-later.
+- Fixed the splash flashing dark between the splash and the desktop: the window now stays opaque until Plasma is ready and only the logo fades.
 - Removed palette-brand mentions from public text; added `README.en.md`, `AGENTS.md`.
 
 ## 0.9

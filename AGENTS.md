@@ -21,6 +21,7 @@ Warm minimal theme for KDE Plasma 6 (Light/Dark): color schemes, Plasma style, g
 - Measure SVG element bounds as KSvg sees them: build a tiny QSvgRenderer::boundsOnElement tool (no Python Qt bindings installed)
 
 ## Pitfalls
+- Splash (`ksplashqml`): stages arrive in order, 6 = desktop ready and the process exits; stage 5 comes BEFORE the desktop is drawn, and the window is transparent. Never fade the whole root at stage 5 (black flash between splash and desktop); keep it opaque, fade only content. Test: `ksplashqml --test --nofork <lnf dir> &` (stage +1 every 2 s) and screenshot around stage 5.
 - Store installs run no scripts: only `contents/defaults` + dependencies apply. Klassy, AccentColor reset, Kate theme, Inter come only from `apply.sh`.
 - Never commit screenshots of a live desktop (personal windows, devices); store previews live in git-ignored `dist/previews`.
 - Plasma 6 tray icons come only from the icon theme (`KDE::icon`); `icons/*.svgz` in a Plasma style are ignored.
