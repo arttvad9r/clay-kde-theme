@@ -17,16 +17,16 @@ To turn dependencies on later: put the content ids (the number in the item URL) 
 
 ## Items
 
-| Archive | Store category | License | Dependencies of the item |
+| Archive | Store category (as shown in the form; ids from `api.kde-look.org/ocs/v1/content/categories`) | License | Dependencies of the item |
 |---|---|---|---|
-| `org.artt.clay.desktop-<v>.tar.gz` | Global Themes (Plasma 6) | LGPL-2.1-or-later | none (Breeze widget style and decoration ship with Plasma) |
-| `org.artt.claydark.desktop-<v>.tar.gz` | Global Themes (Plasma 6) | LGPL-2.1-or-later | none |
-| `clay-plasma-style-<v>.tar.gz`, `clay-dark-plasma-style-<v>.tar.gz` | Plasma Theme | LGPL-2.1-or-later | none |
-| `clay-color-schemes-<v>.tar.gz` | KDE Color Scheme | LGPL-2.1-or-later | none |
-| `clay-icons-<v>.tar.gz` | KDE Icon Theme | LGPL-2.1-or-later | Breeze icons (inherited) |
-| `clay-cursors-<v>.tar.gz` | X11 Mouse Theme | LGPL-2.1-or-later | none |
-| `clay-wallpapers-<v>.tar.gz` | KDE Wallpaper (other) | CC0-1.0 | none |
-| `clay-grid-<v>.tar.gz` | Kwin Switching Layouts Plasma 6 | GPL-2.0-or-later | none |
+| `org.artt.clay.desktop-<v>.tar.gz` | Global Themes (Plasma 6), id 722 | LGPL-2.1-or-later | none (Breeze widget style and decoration ship with Plasma) |
+| `org.artt.claydark.desktop-<v>.tar.gz` | Global Themes (Plasma 6), id 722 | LGPL-2.1-or-later | none |
+| `clay-plasma-style-<v>.tar.gz`, `clay-dark-plasma-style-<v>.tar.gz` | Plasma Themes, id 104 | LGPL-2.1-or-later | none |
+| `clay-color-schemes-<v>.tar.gz` | Plasma Color Schemes, id 112 | LGPL-2.1-or-later | none |
+| `clay-icons-<v>.tar.gz` | Full Icon Themes, id 132 | LGPL-2.1-or-later | Breeze icons (inherited) |
+| `clay-cursors-<v>.tar.gz` | Cursors, id 107 | LGPL-2.1-or-later | none |
+| `clay-wallpapers-<v>.tar.gz` | Wallpapers KDE Plasma, id 299 | CC0-1.0 | none |
+| `clay-grid-<v>.tar.gz` | Kwin Switching Layouts, id 721 (not 211, the Plasma 5 one) | GPL-2.0-or-later | none |
 
 Not in the store (no category): Kate/KWrite syntax themes, kitty, fastfetch, the
 Plasma Login Manager theme. They stay on GitHub and are installed by `install.sh`.
