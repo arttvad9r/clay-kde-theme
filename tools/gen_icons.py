@@ -426,6 +426,18 @@ HDD = "M5.5 6.5h13A2.5 2.5 0 0 1 21 9v6a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 
 SD = "M7 3h7.5L19 7.5V19a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM9 6.5v2.5M12 6.5v2.5"
 SCREEN = "M4.5 4.5h15a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-15a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2zM12 17.5v3M8 20.5h8"
 CIRCLE = "M12 3.5a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17z"
+PHONE = "M9.5 2.5h5A2.5 2.5 0 0 1 17 5v14a2.5 2.5 0 0 1-2.5 2.5h-5A2.5 2.5 0 0 1 7 19V5a2.5 2.5 0 0 1 2.5-2.5zM10.8 5.5h2.4"
+TABLET = "M6.5 2.5h11A2.5 2.5 0 0 1 20 5v14a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 19V5a2.5 2.5 0 0 1 2.5-2.5z"
+LAPTOP = "M6 5h12a1.5 1.5 0 0 1 1.5 1.5V15h-15V6.5A1.5 1.5 0 0 1 6 5zM2.5 18.5h19"
+KEYBOARD = "M4.5 7.5h15a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-15a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2zM8 15.2h8"
+KEYBOARD_LOW = "M4.5 10.5h15a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-15a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2zM8 16.5h8"
+MOUSE = "M12 3a5.5 5.5 0 0 1 5.5 5.5v7a5.5 5.5 0 0 1-11 0v-7A5.5 5.5 0 0 1 12 3zM12 3v6.5"
+GAMEPAD = ("M7.5 7.5h9a4.5 4.5 0 0 1 4.4 5.4l-.8 3.9a2.2 2.2 0 0 1-3.8 1l-2.1-2.3h-4.4"
+           "l-2.1 2.3a2.2 2.2 0 0 1-3.8-1l-.8-3.9A4.5 4.5 0 0 1 7.5 7.5zM8 10.5v3M6.5 12h3")
+HEADSET = ("M4.5 14v-2a7.5 7.5 0 0 1 15 0v2M4.5 14h2.5a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1H6a1.5 1.5 0 0 1-1.5-1.5z"
+           "M19.5 14H17a1 1 0 0 0-1 1v3.5a1 1 0 0 0 1 1h1a1.5 1.5 0 0 0 1.5-1.5z")
+LOCKED = ("M7 10.5h10a1.5 1.5 0 0 1 1.5 1.5v7a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19v-7A1.5 1.5 0 0 1 7 10.5z"
+          "M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5")
 
 
 def sun():
@@ -433,6 +445,10 @@ def sun():
                    for x, y in ((1, 0), (.7071, .7071), (0, 1), (-.7071, .7071),
                                 (-1, 0), (-.7071, -.7071), (0, -1), (.7071, -.7071)))
     return tray(line("M12 8.3a3.7 3.7 0 1 1 0 7.4 3.7 3.7 0 0 1 0-7.4z" + rays))
+
+
+SUN_SMALL = ("M12 8.1a2.4 2.4 0 1 1 0 4.8 2.4 2.4 0 0 1 0-4.8zM12 5.8v.01M12 15.2v.01M7.4 10.5h.01M16.6 10.5h.01"
+             "M8.7 7.2l.01.01M15.3 7.2l.01.01M8.7 13.8l.01.01M15.3 13.8l.01.01")
 
 
 def shrunk(d, k=.84, dx=-.6, dy=-1.4):
@@ -484,8 +500,7 @@ def tray_icons():
         "network-bluetooth-activated": tray(line(BLUETOOTH) + dot(3.8, 12, 1.2) + dot(20.2, 12, 1.2)),
         "network-bluetooth": tray(line(BLUETOOTH)),
         "network-bluetooth-inactive": tray(line(BLUETOOTH, .45)),
-        "kdeconnect-tray": tray(line("M9.5 2.5h5A2.5 2.5 0 0 1 17 5v14a2.5 2.5 0 0 1-2.5 2.5h-5A2.5 2.5 0 0 1 7 19V5a2.5 2.5 0 0 1 2.5-2.5zM10.8 5.5h2.4")
-                                + dot(12, 18.5, 1)),
+        "kdeconnect-tray": tray(line(PHONE) + dot(12, 18.5, 1)),
         "audio-volume-muted": speaker(body_extra=line("M15 9.5l5 5M20 9.5l-5 5")),
         "audio-volume-low": volume(1),
         "audio-volume-medium": volume(2),
@@ -512,6 +527,20 @@ def tray_icons():
         "media-flash-sd-mmc-symbolic": tray(line(SD)),
         "media-optical-symbolic": tray(line(CIRCLE) + line("M12 9.8a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4z")),
         "preferences-desktop-display-randr-symbolic": tray(line(SCREEN + "M9.5 13l5-5M11.2 8h3.3v3.3")),
+        "video-display-brightness": tray(line(SCREEN) + line(SUN_SMALL, sw=1.4)),
+        "input-keyboard": tray(line(KEYBOARD) + dots(((7.2, 10.8), (10.4, 10.8), (13.6, 10.8), (16.8, 10.8), (8.8, 13.4), (12, 13.4), (15.2, 13.4)), .9)),
+        "input-keyboard-brightness": tray(line(KEYBOARD_LOW)
+                                          + line("M8 3.5v2.5M12 2.5v3.5M16 3.5v2.5")),
+        "input-keyboard-color": tray(line(KEYBOARD_LOW)
+                                     + dots(((8, 5), (12, 5), (16, 5)), 1.3)),
+        "input-mouse": tray(line(MOUSE)),
+        "input-gamepad": tray(line(GAMEPAD) + dots(((15.5, 11), (17.3, 13)), 1)),
+        "audio-headset": tray(line(HEADSET)),
+        "smartphone": tray(line(PHONE) + dot(12, 18.5, 1)),
+        "tablet": tray(line(TABLET) + dot(12, 18.5, 1)),
+        "computer-laptop": tray(line(LAPTOP)),
+        "computer": tray(line(SCREEN)),
+        "dialog-password": tray(line(LOCKED)),
         "system-suspend-inhibited": tray(line(CUP)),
         "system-suspend-uninhibited": tray(line(CUP) + line(SLASH)),
         "network-wired-disconnected": tray(line(PORT, DIM) + line(SLASH)),
@@ -538,6 +567,11 @@ def tray_icons():
         "microphone-sensitivity-medium": "audio-input-microphone-symbolic",
         "microphone-sensitivity-high": "audio-input-microphone-symbolic",
         "network-wired": "network-wired-activated",
+        "audio-headphones": "audio-headset", "phone": "smartphone", "smartphone-connected": "smartphone",
+        "smartphone-disconnected": "smartphone", "phone-connected": "smartphone", "computer-desktop": "computer",
+        "tv": "computer", "video-television": "computer", "input-mouse-battery": "input-mouse",
+        "input-keyboard-battery": "input-keyboard", "input-gamepad-battery": "input-gamepad",
+        "audio-headset-battery": "audio-headset", "phone-battery": "smartphone",
         "network-wired-available": "network-wired-activated",
         "network-wired-unavailable": "network-wired-disconnected",
         "network-unavailable": "network-wireless-disconnected",
@@ -681,8 +715,7 @@ def action_icons():
         "starred": tray(fill(STAR) + line(STAR)),
         "bookmarks": lines("M7 3.5h10a1 1 0 0 1 1 1v16l-6-4-6 4v-16a1 1 0 0 1 1-1z"),
         "bookmark-new": lines("M7 3.5h10a1 1 0 0 1 1 1v16l-6-4-6 4v-16a1 1 0 0 1 1-1zM12 7.5v5M9.5 10h5"),
-        "object-locked": lines("M7 10.5h10a1.5 1.5 0 0 1 1.5 1.5v7a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19v-7A1.5 1.5 0 0 1 7 10.5z"
-                               "M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"),
+        "object-locked": lines(LOCKED),
         "object-unlocked": lines("M7 10.5h10a1.5 1.5 0 0 1 1.5 1.5v7a1.5 1.5 0 0 1-1.5 1.5H7A1.5 1.5 0 0 1 5.5 19v-7A1.5 1.5 0 0 1 7 10.5z"
                                  "M8.5 10.5V8a3.5 3.5 0 0 1 6.8-1.2"),
         "media-playback-start": lines("M8 5.5v13l10.5-6.5z"),
@@ -696,6 +729,12 @@ def action_icons():
         "media-playlist-repeat": lines("M17 3.5l3 3-3 3M4 11.5v-1a4 4 0 0 1 4-4h12M7 20.5l-3-3 3-3M20 12.5v1a4 4 0 0 1-4 4H4"),
         "media-playlist-shuffle": lines("M16.5 3.5l3 3-3 3M3.5 6.5H7c4.5 0 5.5 11 10 11h2.5M16.5 14.5l3 3-3 3"
                                         "M3.5 17.5H7c1.5 0 2.5-1.2 3.3-2.8M13.7 9.3c.8-1.6 1.8-2.8 3.3-2.8h2.5"),
+        "view-barcode-qr": tray(line("M5.5 4.5h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1z"
+                                     "M14.5 4.5h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1z"
+                                     "M5.5 13.5h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1z")
+                                + dots(((14.4, 14.4), (19.2, 14.4), (16.8, 17), (14.4, 19.6), (19.2, 19.6)), 1)),
+        "format-number-percent": lines("M7.5 5.3a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4zM16.5 14.3a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4zM18 5.5 6 18.5"),
+        "draw-number": lines("M9.5 4 8 20M16 4l-1.5 16M4.5 9h15M4 15h15"),
         "network-connect": lines(PLUG),
         "network-disconnect": tray(line(PLUG) + line(SLASH)),
         "user-identity": lines("M12 4a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zM5 20c.8-3.8 3.6-6 7-6s6.2 2.2 7 6"),
@@ -718,9 +757,7 @@ def action_icons():
         "applications-science-symbolic": lines("M9.5 3.5h5M10.5 3.5V9L5 18.5a1.3 1.3 0 0 0 1.1 2h11.8a1.3 1.3 0 0 0 1.1-2"
                                                "L13.5 9V3.5M7.5 14.5h9"),
         "applications-education-symbolic": lines("M2.5 9.5 12 5l9.5 4.5L12 14zM6.5 11.5V16c3.5 2.5 7.5 2.5 11 0v-4.5M21.5 9.5v5"),
-        "applications-games-symbolic": tray(line("M7.5 7.5h9a4.5 4.5 0 0 1 4.4 5.4l-.8 3.9a2.2 2.2 0 0 1-3.8 1l-2.1-2.3h-4.4"
-                                                 "l-2.1 2.3a2.2 2.2 0 0 1-3.8-1l-.8-3.9A4.5 4.5 0 0 1 7.5 7.5zM8 10.5v3M6.5 12h3")
-                                            + dots(((15.5, 11), (17.3, 13)), 1)),
+        "applications-games-symbolic": tray(line(GAMEPAD) + dots(((15.5, 11), (17.3, 13)), 1)),
         "utilities-terminal-symbolic": lines(FRAME + "M7 9.5l3 2.5-3 2.5M12.5 15H17"),
         "office-calendar-symbolic": lines("M5.5 5h13a2 2 0 0 1 2 2v11.5a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"
                                           "M3.5 10h17M8 3v4M16 3v4"),
@@ -740,7 +777,8 @@ def action_icons():
         "help-about": "dialog-information", "documentinfo": "dialog-information", "help-hint": "dialog-information",
         "system-help": "help-contents", "settings-configure": "configure", "open-menu": "application-menu",
         "view-more": "overflow-menu", "media-playlist-repeat-song": "media-playlist-repeat",
-        "view-history": "document-open-recent",
+        "view-history": "document-open-recent", "edit-none": "dialog-cancel",
+        "internet-web-browser": "applications-internet-symbolic",
         "applications-all-symbolic": "view-list-icons", "applications-other-symbolic": "view-more-horizontal",
         "applications-network-symbolic": "applications-internet-symbolic",
         "applications-toys-symbolic": "applications-games-symbolic",
