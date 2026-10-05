@@ -33,5 +33,5 @@ Warm minimal theme for KDE Plasma 6 (Light/Dark): color schemes, Plasma style, g
 - install.sh replaces listed paths wholesale: list single files for shared dirs (syntax themes), never the dir.
 
 ## Status
-- Done: v1.0 palette and icon set, Plasma Login Manager, kitty/fastfetch, tray and action icons, KDE app tiles, Plasma tasks/button/lineedit, cursors, Kate themes.
+- Done: v1.0 palette and icon set, Plasma Login Manager, kitty/fastfetch, tray and action icons, KDE app tiles, Plasma tasks/button/lineedit, cursors, Kate themes, KDE Store release (10 items; Global Themes pull their components and Clay pulls Clay Dark).
 - Gaps (fall back to Breeze): tray gaps (fall back to Breeze): RTL variants; mobile generation (LTE…) and power-profile badges are aliased to the plain glyph.
