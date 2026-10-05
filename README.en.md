@@ -4,7 +4,7 @@
 
 A warm, paper-toned theme for KDE Plasma 6, light and dark. Ivory and slate surfaces, one restrained terracotta accent used only for focus and active controls. One visual language from the panel to the file manager. The Russian [README.md](README.md) is the full documentation; this is the short version.
 
-Version **1.0** · Plasma 6.7+
+Version **1.0.1** · Plasma 6.7+
 
 <table>
 <tr>
