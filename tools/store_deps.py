@@ -15,7 +15,7 @@ DEPS = {
                               ("cursors", "xcursor.knsrc"), ("wallpapers", "wallpaper.knsrc"),
                               ("window-switcher", "kwinswitcher.knsrc")],
     "org.artt.claydark.desktop": [("plasma-style-dark", "plasma-themes.knsrc"), ("icons", "icons.knsrc"),
-                                  ("cursors", "xcursor.knsrc"), ("wallpapers", "wallpaper.knsrc"),
+                                  ("cursors", "xcursor.knsrc"), ("wallpapers-dark", "wallpaper.knsrc"),
                                   ("window-switcher", "kwinswitcher.knsrc")],
 }
 

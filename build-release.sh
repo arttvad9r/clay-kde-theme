@@ -59,7 +59,10 @@ pack "clay-dark-plasma-style-$version.tar.gz" "$stage" clay-dark
 pack "clay-color-schemes-$version.tar.gz" "$p/color-schemes" ClayLight.colors ClayDark.colors
 pack "clay-icons-$version.tar.gz" "$p/icons" clay-icons
 pack "clay-cursors-$version.tar.gz" "$p/icons" clay-cursors
-pack "clay-wallpapers-$version.tar.gz" "$p/wallpapers" Clay ClayDark
+# One wallpaper package per archive: wallpaper.knsrc unpacks a multi-package
+# archive into an extra subdir, and the Global Theme no longer finds Image=Clay.
+pack "clay-field-$version.tar.gz" "$p/wallpapers" Clay
+pack "clay-field-dark-$version.tar.gz" "$p/wallpapers" ClayDark
 pack "clay-grid-$version.tar.gz" "$p/kwin/tabbox" clay_grid
 
 (
