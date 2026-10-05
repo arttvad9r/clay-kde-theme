@@ -5,7 +5,7 @@ Warm minimal theme for KDE Plasma 6 (Light/Dark): color schemes, Plasma style, g
 ## Layout
 - `payload/` — everything installed into `~/.local/share` (`install.sh` replaces each component wholesale, with a backup).
 - `payload/icons/clay-icons` — overlay icon theme, `Inherits=breeze`.
-- `tools/gen_icons.py` — generates folders, mimetypes, devices, app tiles, tray (`status/scalable`) and action (`actions/scalable`) icons, Settings modules (`preferences-*`: glyph ≤24 px, card above), emblems, Meta+P OSD (`applets/scalable`). Edit the generator, not the SVGs. `actions/<size>/system-*` are hand-made.
+- `tools/gen_icons.py` — generates folders, mimetypes, devices, app tiles, tray (`status/scalable`) and action (`actions/scalable`) icons, device glyphs for popups (phone, laptop, keyboard, mouse, headset), Settings modules (`preferences-*`: glyph ≤24 px, card above), emblems, Meta+P OSD (`applets/scalable`). Edit the generator, not the SVGs. `actions/<size>/system-*` are hand-made.
 - `tools/gen_plasma_widgets.py` — Plasma style `tasks`, `button`, `lineedit` (9-slice, radius 6; margin hints copied from Breeze). Other widgets are hand-tweaked Breeze copies.
 - `tools/gen_cursors.py` — `clay-cursors` recolored from installed `breeze_cursors` (needs rsvg-convert, magick).
 - `payload/org.kde.syntax-highlighting/themes` — Kate/KWrite themes, selected by `apply.sh`.
@@ -21,6 +21,7 @@ Warm minimal theme for KDE Plasma 6 (Light/Dark): color schemes, Plasma style, g
 - Measure SVG element bounds as KSvg sees them: build a tiny QSvgRenderer::boundsOnElement tool (no Python Qt bindings installed)
 
 ## Pitfalls
+- KIconLoader falls back by dropping name suffixes: a missing `video-display-brightness` or `audio-headset` silently resolves to the mimetype `video-x-generic`/`audio-x-generic`. Check applet icons at their real size, not just by name; applets in 6.7 are compiled into `.so`, so list their icon names with `strings -e l`, and preview one with `plasmawindowed org.kde.plasma.<id>` + `spectacle -a`.
 - Splash (`ksplashqml`): stages arrive in order, 6 = desktop ready and the process exits; stage 5 comes BEFORE the desktop is drawn, and the window is transparent. Never fade the whole root at stage 5 (black flash between splash and desktop); keep it opaque, fade only content. Test: `ksplashqml --test --nofork <lnf dir> &` (stage +1 every 2 s) and screenshot around stage 5.
 - Store installs run no scripts: only `contents/defaults` + dependencies apply. AccentColor reset, Kate theme, Inter come only from `apply.sh`.
 - Never commit screenshots of a live desktop (personal windows, devices); store previews live in git-ignored `dist/previews`.
@@ -33,4 +34,4 @@ Warm minimal theme for KDE Plasma 6 (Light/Dark): color schemes, Plasma style, g
 
 ## Status
 - Done: v1.0 palette and icon set, Plasma Login Manager, kitty/fastfetch, tray and action icons, KDE app tiles, Plasma tasks/button/lineedit, cursors, Kate themes.
-- Gaps (fall back to Breeze): tray gaps (fall back to Breeze): peripheral batteries (mouse, headset…), RTL variants; mobile generation (LTE…) and power-profile badges are aliased to the plain glyph.
+- Gaps (fall back to Breeze): tray gaps (fall back to Breeze): RTL variants; mobile generation (LTE…) and power-profile badges are aliased to the plain glyph.

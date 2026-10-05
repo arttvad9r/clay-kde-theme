@@ -6,25 +6,27 @@ Publish at store.kde.org (Pling), logged in as the author. Archives are built by
 
 ## Order
 
-1. Upload the leaf items, note each content id (the number in the item URL).
-2. Put the ids into `store/ids.json` (`plasma-style`, `plasma-style-dark`, `icons`, `cursors`,
-   `wallpapers`, `window-switcher`) and rebuild: both Global Themes then get
-   `X-KPackage-Dependencies` (`kns://<knsrc>/api.kde-look.org/<id>`), so installing the Global
-   Theme pulls the rest.
-3. Upload the two Global Themes last. Test an install on a clean user (below).
+Upload all items in any order. The Global Themes ship without `X-KPackage-Dependencies`
+(`store/ids.json` stays all zeros): `kns://` dependencies fail on several Plasma 6 releases
+("Could not install dependency"), and one failed dependency aborts the whole Global Theme
+install. Without them the Global Theme always installs; components that are not installed
+fall back to Breeze. List the component items with links in each Global Theme description.
+
+To turn dependencies on later: put the content ids (the number in the item URL) into
+`store/ids.json`, rebuild, re-upload the Global Themes, and test the install on a clean user.
 
 ## Items
 
-| Archive | Store category | License | Dependencies of the item |
+| Archive | Store category (as shown in the form; ids from `api.kde-look.org/ocs/v1/content/categories`) | License | Dependencies of the item |
 |---|---|---|---|
-| `org.artt.clay.desktop-<v>.tar.gz` | Global Themes (Plasma 6) | LGPL-2.1-or-later | none (Breeze widget style and decoration ship with Plasma) |
-| `org.artt.claydark.desktop-<v>.tar.gz` | Global Themes (Plasma 6) | LGPL-2.1-or-later | none |
-| `clay-plasma-style-<v>.tar.gz`, `clay-dark-plasma-style-<v>.tar.gz` | Plasma Theme | LGPL-2.1-or-later | none |
-| `clay-color-schemes-<v>.tar.gz` | KDE Color Scheme | LGPL-2.1-or-later | none |
-| `clay-icons-<v>.tar.gz` | KDE Icon Theme | LGPL-2.1-or-later | Breeze icons (inherited) |
-| `clay-cursors-<v>.tar.gz` | X11 Mouse Theme | LGPL-2.1-or-later | none |
-| `clay-wallpapers-<v>.tar.gz` | KDE Wallpaper (other) | CC0-1.0 | none |
-| `clay-grid-<v>.tar.gz` | Kwin Switching Layouts Plasma 6 | GPL-2.0-or-later | none |
+| `org.artt.clay.desktop-<v>.tar.gz` | Global Themes (Plasma 6), id 722 | LGPL-2.1-or-later | none (Breeze widget style and decoration ship with Plasma) |
+| `org.artt.claydark.desktop-<v>.tar.gz` | Global Themes (Plasma 6), id 722 | LGPL-2.1-or-later | none |
+| `clay-plasma-style-<v>.tar.gz`, `clay-dark-plasma-style-<v>.tar.gz` | Plasma Themes, id 104 | LGPL-2.1-or-later | none |
+| `clay-color-schemes-<v>.tar.gz` | Plasma Color Schemes, id 112 | LGPL-2.1-or-later | none |
+| `clay-icons-<v>.tar.gz` | Full Icon Themes, id 132 | LGPL-2.1-or-later | Breeze icons (inherited) |
+| `clay-cursors-<v>.tar.gz` | Cursors, id 107 | LGPL-2.1-or-later | none |
+| `clay-wallpapers-<v>.tar.gz` | Wallpapers KDE Plasma, id 299 | CC0-1.0 | none |
+| `clay-grid-<v>.tar.gz` | Kwin Switching Layouts, id 721 (not 211, the Plasma 5 one) | GPL-2.0-or-later | none |
 
 Not in the store (no category): Kate/KWrite syntax themes, kitty, fastfetch, the
 Plasma Login Manager theme. They stay on GitHub and are installed by `install.sh`.
@@ -48,7 +50,9 @@ controls. One consistent visual language from the panel to the file manager:
 **Requires:** KDE Plasma 6.7+ (tested on 6.7.5, Wayland). Uses the stock Breeze widget style and
 window decoration, nothing else to install. The Inter font is optional.
 
-**Apply:** System Settings → Appearance → Global Theme → Clay or Clay Dark. For the full setup
+**Apply:** System Settings → Appearance → Global Theme → Clay or Clay Dark. Install the Clay
+Plasma style, icons, cursors, wallpapers and Alt+Tab switcher first (links below), or Breeze is
+used in their place. For the full setup
 (Inter, the Kate theme, kitty) use the scripts at
 https://github.com/arttvad9r/clay-kde-theme
 
@@ -67,6 +71,4 @@ sheets rendered from `payload/icons`.
 XDG_DATA_HOME=$(mktemp -d) kpackagetool6 -t Plasma/LookAndFeel -i dist/store/org.artt.clay.desktop-<v>.tar.gz
 ```
 
-Then apply it in a throwaway Plasma session or a fresh VM user and check the dependency downloads.
-Plasma 6.5+ has reports of `kns://` dependencies failing to install; verify on your uploaded items
-before announcing.
+Then apply it in a throwaway Plasma session or a fresh VM user.
