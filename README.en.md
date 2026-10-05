@@ -4,7 +4,7 @@
 
 A warm, paper-toned theme for KDE Plasma 6, light and dark. Ivory and slate surfaces, one restrained terracotta accent used only for focus and active controls. One visual language from the panel to the file manager. The Russian [README.md](README.md) is the full documentation; this is the short version.
 
-Version **1.0.1** · Plasma 6.7+
+Version **1.1.0** · Plasma 6.7+
 
 <table>
 <tr>
@@ -23,7 +23,7 @@ Version **1.0.1** · Plasma 6.7+
 
 ## KDE Store
 
-No scripts needed: System Settings → … → Get New…, search for "Clay". Install the components first, then the Global Theme (it does not pull them in: on several Plasma 6 releases dependency downloads break the whole install).
+No scripts needed: System Settings → Global Theme → Get New…, search for "Clay". The Global Theme pulls in the Plasma style, icons, cursors, wallpaper and Alt+Tab switcher, and Clay also brings Clay Dark: pick it as the dark theme on the Global Theme page (that is also where night-time dark mode is enabled). Each component can also be installed on its own page.
 
 | Component | System Settings page | Store |
 |---|---|---|
@@ -32,7 +32,7 @@ No scripts needed: System Settings → … → Get New…, search for "Clay". In
 | Color schemes | Colors | [Clay Color Schemes](https://store.kde.org/p/2377202) |
 | Icons | Icons | [Clay Icons](https://store.kde.org/p/2377203) |
 | Cursors | Cursors | [Clay Cursors](https://store.kde.org/p/2377205) |
-| Wallpapers | Wallpaper | [Clay Field](https://store.kde.org/p/2377206) |
+| Wallpapers | Wallpaper | [Clay Field](https://store.kde.org/p/2377206) · [Clay Field Dark](https://store.kde.org/p/2377278) |
 | Alt+Tab | Task Switcher | [Clay Grid](https://store.kde.org/p/2377207) |
 
 Kate/KWrite themes, kitty, fastfetch, Inter and the login screen come only with `install.sh` (below).
