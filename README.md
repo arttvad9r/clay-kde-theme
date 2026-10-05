@@ -1,10 +1,41 @@
 # Clay KDE Theme
 
-Clay — тёплая минималистичная тема для KDE Plasma 6 с отдельными Light/Dark вариантами.
+![Clay Light и Clay Dark](docs/screenshots/hero.png)
 
-Текущая версия: **1.0**
+Clay — тёплая «бумажная» тема для KDE Plasma 6, светлая и тёмная. Слоновая кость и графит, один сдержанный терракотовый акцент только для фокуса и активных элементов. Единый вид от панели до файлового менеджера: цвета, стиль Plasma, иконки, курсоры, обои, заставка, экран выхода, Alt+Tab.
 
-English summary: [README.en.md](README.en.md). Публикация в KDE Store: [docs/store-listing.md](docs/store-listing.md).
+Версия **1.0.1** · Plasma 6.7+ · [English](README.en.md)
+
+<table>
+<tr>
+<td><img src="docs/screenshots/light-dolphin.png" alt="Dolphin, светлая"></td>
+<td><img src="docs/screenshots/dark-dolphin.png" alt="Dolphin, тёмная"></td>
+</tr>
+<tr>
+<td><img src="docs/screenshots/light-settings.png" alt="Параметры системы"></td>
+<td><img src="docs/screenshots/dark-alttab.png" alt="Alt+Tab Clay Grid"></td>
+</tr>
+<tr>
+<td><img src="docs/screenshots/icons-light.png" alt="Иконки"></td>
+<td><img src="docs/screenshots/cursors.png" alt="Курсоры"></td>
+</tr>
+</table>
+
+## KDE Store
+
+Без скриптов: «Параметры системы → … → Загрузить новые…», поиск «Clay». Сначала компоненты, потом Global Theme (зависимости она не тянет: на части версий Plasma 6 их загрузка ломает установку).
+
+| Компонент | Где в Параметрах | Стор |
+|---|---|---|
+| Global Theme Clay / Clay Dark | Глобальная тема | [Clay](https://store.kde.org/p/2377208) · [Clay Dark](https://store.kde.org/p/2377211) |
+| Стиль Plasma | Стиль Plasma | [Clay](https://store.kde.org/p/2377181) · [Clay Dark](https://store.kde.org/p/2377182) |
+| Цветовые схемы | Цвета | [Clay Color Schemes](https://store.kde.org/p/2377202) |
+| Иконки | Значки | [Clay Icons](https://store.kde.org/p/2377203) |
+| Курсоры | Курсоры | [Clay Cursors](https://store.kde.org/p/2377205) |
+| Обои | Обои | [Clay Field](https://store.kde.org/p/2377206) |
+| Alt+Tab | Переключение окон | [Clay Grid](https://store.kde.org/p/2377207) |
+
+Kate/KWrite-темы, kitty, fastfetch, Inter и экран входа — только через `install.sh` (ниже).
 
 ## Состав
 

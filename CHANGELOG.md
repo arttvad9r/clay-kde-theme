@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+
+- README: screenshots, KDE Store links. No theme changes.
+
 ## 1.0
 
 - Icons: full system tray set (network, battery, volume, notifications, media, Bluetooth, brightness, KDE Connect), ~90 line action icons, launcher categories, System Settings modules, Dolphin emblems, Meta+P OSD, KDE app tiles (Kate, Spectacle, Gwenview, Okular, Ark, KInfoCenter, KDE Connect…), scalable app icons for sizes above 64 px.
