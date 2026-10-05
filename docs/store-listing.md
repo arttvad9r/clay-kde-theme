@@ -8,7 +8,8 @@ Publish at store.kde.org (Pling), logged in as the author. Archives are built by
 
 The Global Themes declare `X-KPackage-Dependencies` (`kns://<knsrc>/api.kde-look.org/<id>`,
 ids in `store/ids.json`, written by `tools/store_deps.py`), so installing Clay or Clay Dark
-pulls in the Plasma style, icons, cursors, wallpaper and Alt+Tab switcher. Verified on Plasma
+pulls in the Plasma style, icons, cursors, wallpaper and Alt+Tab switcher; Clay also pulls in
+Clay Dark (one way: KPackage rejects cyclic dependencies). Upload Clay Dark before Clay. Verified on Plasma
 6.7.5: all five install in ~10 s.
 
 - One failed dependency aborts the whole Global Theme install, and KPackage waits at most
@@ -25,7 +26,7 @@ pulls in the Plasma style, icons, cursors, wallpaper and Alt+Tab switcher. Verif
 
 | Archive | Store category (as shown in the form; ids from `api.kde-look.org/ocs/v1/content/categories`) | License | Dependencies of the item |
 |---|---|---|---|
-| `org.artt.clay.desktop-<v>.tar.gz` | Global Themes (Plasma 6), id 722 | LGPL-2.1-or-later | Clay Plasma style, icons, cursors, Clay Field, Clay Grid |
+| `org.artt.clay.desktop-<v>.tar.gz` | Global Themes (Plasma 6), id 722 | LGPL-2.1-or-later | Clay Plasma style, icons, cursors, Clay Field, Clay Grid, Clay Dark (Global Theme) |
 | `org.artt.claydark.desktop-<v>.tar.gz` | Global Themes (Plasma 6), id 722 | LGPL-2.1-or-later | Clay Dark Plasma style, icons, cursors, Clay Field Dark, Clay Grid |
 | `clay-plasma-style-<v>.tar.gz`, `clay-dark-plasma-style-<v>.tar.gz` | Plasma Themes, id 104 | LGPL-2.1-or-later | none |
 | `clay-color-schemes-<v>.tar.gz` | Plasma Color Schemes, id 112 | LGPL-2.1-or-later | none |

@@ -2,7 +2,7 @@
 
 ## 1.1.0
 
-- KDE Store: Global Themes install their components (Plasma style, icons, cursors, wallpaper, Alt+Tab) through `X-KPackage-Dependencies`.
+- KDE Store: Global Themes install their components (Plasma style, icons, cursors, wallpaper, Alt+Tab) through `X-KPackage-Dependencies`; Clay also installs Clay Dark.
 - Wallpapers are packed one per archive (`clay-field`, `clay-field-dark`): a two-package archive landed in an extra subfolder on store installs.
 
 ## 1.0.1

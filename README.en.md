@@ -23,7 +23,7 @@ Version **1.1.0** · Plasma 6.7+
 
 ## KDE Store
 
-No scripts needed: System Settings → Global Theme → Get New…, search for "Clay". The Global Theme pulls in the Plasma style, icons, cursors, wallpaper and Alt+Tab switcher. Each component can also be installed on its own page.
+No scripts needed: System Settings → Global Theme → Get New…, search for "Clay". The Global Theme pulls in the Plasma style, icons, cursors, wallpaper and Alt+Tab switcher, and Clay also brings Clay Dark: pick it as the dark theme on the Global Theme page (that is also where night-time dark mode is enabled). Each component can also be installed on its own page.
 
 | Component | System Settings page | Store |
 |---|---|---|

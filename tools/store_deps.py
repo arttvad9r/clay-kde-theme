@@ -13,7 +13,9 @@ from pathlib import Path
 DEPS = {
     "org.artt.clay.desktop": [("plasma-style", "plasma-themes.knsrc"), ("icons", "icons.knsrc"),
                               ("cursors", "xcursor.knsrc"), ("wallpapers", "wallpaper.knsrc"),
-                              ("window-switcher", "kwinswitcher.knsrc")],
+                              ("window-switcher", "kwinswitcher.knsrc"),
+                              # Clay brings its dark sibling (one way only: KPackage rejects cycles).
+                              ("global-theme-dark", "lookandfeel.knsrc")],
     "org.artt.claydark.desktop": [("plasma-style-dark", "plasma-themes.knsrc"), ("icons", "icons.knsrc"),
                                   ("cursors", "xcursor.knsrc"), ("wallpapers-dark", "wallpaper.knsrc"),
                                   ("window-switcher", "kwinswitcher.knsrc")],
