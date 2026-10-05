@@ -9,6 +9,8 @@
 - KDE Store packaging: per-item archives in `dist/store/`, optional `X-KPackage-Dependencies`; `docs/store-listing.md`.
 - Licensing: `LICENSE`, `LICENSES/`, full `LICENSES.md`; consistent authors and URLs in metadata; clay_grid declared GPL-2.0-or-later.
 - Dropped Klassy: widget style and window decoration are stock Breeze (Global Themes `defaults`, apply scripts); removed the Klassy preset and apply script, so nothing but Plasma is required.
+- Icons: device glyphs for applet popups (phone, laptop, desktop, TV, keyboard, mouse, headset, gamepad) with peripheral battery variants, display/keyboard brightness, a few more actions.
+- KDE Store: Global Themes ship without `kns://` dependencies (they fail on several Plasma 6 releases); components are separate items.
 - Fixed the splash flashing dark between the splash and the desktop: the window now stays opaque until Plasma is ready and only the logo fades.
 - Removed palette-brand mentions from public text; added `README.en.md`, `AGENTS.md`.
 
