@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Generate the Clay Aurorae window decoration.
 
-Titlebar: window background, hairline outline, rounded top corners (radius 8),
-square bottom. Buttons: thin Text-colored glyphs without a background; a soft
+Titlebar: window background, hairline outline, rounded corners (radius 8), the bottom
+edge is a 5 px border so the square client does not cover them. Buttons: thin Text-colored glyphs without a background; a soft
 fill appears on hover, the close button turns Clay on hover. Colors come from
 ColorScheme classes, so one theme serves light and dark.
 
@@ -55,6 +55,12 @@ def frame(prefix, rounded):
         elif name == "topright":
             d = f"M{x} {y}H{x + w - r}" + (f"A{r} {r} 0 0 1 {x + w} {y + r}" if r else f"H{x + w}") + f"V{y + h}H{x}z"
             line = f"M{x} {y + .5}H{x + w - r}" + (f"A{r - .5} {r - .5} 0 0 1 {x + w - .5} {y + r}" if r else f"H{x + w - .5}") + f"V{y + h}"
+        elif name == "bottomleft" and r:
+            d = f"M{x} {y}H{x + w}V{y + h}H{x + r}A{r} {r} 0 0 1 {x} {y + h - r}z"
+            line = f"M{x + .5} {y}V{y + h - r}A{r - .5} {r - .5} 0 0 0 {x + r} {y + h - .5}H{x + w}"
+        elif name == "bottomright" and r:
+            d = f"M{x} {y}H{x + w}V{y + h - r}A{r} {r} 0 0 1 {x + w - r} {y + h}H{x}z"
+            line = f"M{x} {y + h - .5}H{x + w - r}A{r - .5} {r - .5} 0 0 0 {x + w - .5} {y + h - r}V{y}"
         else:
             d = f"M{x} {y}h{w}v{h}h-{w}z"
             line = {"top": f"M{x} {y + .5}h{w}",
@@ -147,7 +153,7 @@ DecorationPosition=0
 [Layout]
 BorderLeft=1
 BorderRight=1
-BorderBottom=1
+BorderBottom=5
 BorderTop=0
 TitleEdgeTop=4
 TitleEdgeBottom=4
