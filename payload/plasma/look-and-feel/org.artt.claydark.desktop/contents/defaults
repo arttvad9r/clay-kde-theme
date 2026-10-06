@@ -18,7 +18,7 @@ LayoutName=clay_grid
 
 [kwinrc][org.kde.kdecoration2]
 library=org.kde.kwin.aurorae
-theme=__aurorae__svg__Clay
+theme=__aurorae__svg__ClayDark
 
 [plasmarc][Theme]
 name=clay-dark

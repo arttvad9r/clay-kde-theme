@@ -9,6 +9,7 @@ case "$variant" in
   light)
     lnf="org.artt.clay.desktop"
     scheme="ClayLight"
+    decoration="Clay"
     plasma_theme="clay"
     wallpaper="Clay"
     editor_theme="Clay Light"
@@ -16,6 +17,7 @@ case "$variant" in
   dark)
     lnf="org.artt.claydark.desktop"
     scheme="ClayDark"
+    decoration="ClayDark"
     plasma_theme="clay-dark"
     wallpaper="ClayDark"
     editor_theme="Clay Dark"
@@ -57,7 +59,7 @@ plasma-apply-colorscheme "$scheme"
 kwriteconfig6 --file kdeglobals --group KDE --key widgetStyle Breeze
 kwriteconfig6 --file kdeglobals --group Icons --key Theme clay-icons --notify
 kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key library org.kde.kwin.aurorae
-kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key theme __aurorae__svg__Clay
+kwriteconfig6 --file kwinrc --group org.kde.kdecoration2 --key theme "__aurorae__svg__$decoration"
 kwriteconfig6 --file kwinrc --group TabBox --key LayoutName clay_grid
 if command -v plasma-apply-cursortheme >/dev/null 2>&1; then
   plasma-apply-cursortheme clay-cursors >/dev/null

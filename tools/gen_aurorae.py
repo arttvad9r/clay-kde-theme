@@ -11,7 +11,11 @@ Run from anywhere: python3 tools/gen_aurorae.py
 import gzip
 from pathlib import Path
 
-OUT = Path(__file__).resolve().parent.parent / "payload/aurorae/themes/Clay"
+THEMES = Path(__file__).resolve().parent.parent / "payload/aurorae/themes"
+# Title text color is the one thing the scheme can't recolor (it lives in the rc file).
+VARIANTS = {"Clay": dict(text="20,20,19", line=.16, line_inactive=.08),
+            "ClayDark": dict(text="250,249,245", line=.1, line_inactive=.05)}
+NAME = "Clay"          # variant being written
 
 STYLE = ('<style type="text/css" id="current-color-scheme">'
          ".ColorScheme-Text{color:#141413}.ColorScheme-Background{color:#FAF9F5}"
@@ -23,6 +27,7 @@ R = 8        # corner radius
 TOP = 32     # title height incl. edges
 M = 8        # side/bottom slice size (client covers all but the outer 1 px)
 W = 24       # button box
+MIDX, MIDY = 4096, 2304   # middle slices: FrameSvg tiles them, so one tile must cover any window (seams otherwise)
 
 
 def svg(w, h, body):
@@ -31,6 +36,7 @@ def svg(w, h, body):
 
 
 def write(name, text):
+    OUT = THEMES / NAME
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / name).write_bytes(gzip.compress(text.encode(), mtime=0)) if name.endswith("z") \
         else (OUT / name).write_text(text)
@@ -41,9 +47,8 @@ def frame(prefix, rounded, line_op=.16):
     r = R if rounded else 0
     o = f'class="ColorScheme-Text" fill="none" stroke="currentColor" stroke-opacity="{line_op}"'
     f = 'class="ColorScheme-Background" fill="currentColor"'
-    # Middle slices are 1 px so tiling them can't leave antialiasing seams.
-    xs, ws = [0, M, M + 1], [M, 1, M]
-    ys, hs = [0, TOP, TOP + 1], [TOP, 1, M]
+    xs, ws = [0, M, M + MIDX], [M, MIDX, M]
+    ys, hs = [0, TOP, TOP + MIDY], [TOP, MIDY, M]
     names = [["topleft", "top", "topright"], ["left", "center", "right"], ["bottomleft", "bottom", "bottomright"]]
     sizes = {names[j][i]: (xs[i], ys[j], ws[i], hs[j]) for j in range(3) for i in range(3)}
     out = []
@@ -74,11 +79,13 @@ def frame(prefix, rounded, line_op=.16):
 
 
 def decoration():
-    body = (frame("decoration", True) + frame("decoration-maximized", False)
-            + frame("decoration-inactive", True, .08) + frame("decoration-inactive-maximized", False, .08))
+    v = VARIANTS[NAME]
+    body = (frame("decoration", True, v["line"]) + frame("decoration-maximized", False, v["line"])
+            + frame("decoration-inactive", True, v["line_inactive"])
+            + frame("decoration-inactive-maximized", False, v["line_inactive"]))
     # Blur/shape mask: the full 3x3 frame, same slicing.
     body += frame("mask", True).replace('class="ColorScheme-Background" fill="currentColor"', 'fill="#000"')
-    write("decoration.svgz", svg(2 * M + 1, TOP + M + 1, body))
+    write("decoration.svgz", svg(2 * M + MIDX, TOP + M + MIDY, body))
 
 
 # Glyphs, drawn in a W x W box around (12, 12).
@@ -125,20 +132,20 @@ def button(name):
 
 
 def metadata():
-    write("metadata.desktop", """[Desktop Entry]
-Name=Clay
+    write("metadata.desktop", f"""[Desktop Entry]
+Name={NAME.replace("Dark", " Dark")}
 Comment=Warm minimal window decoration
-X-KDE-PluginInfo-Name=Clay
+X-KDE-PluginInfo-Name={NAME}
 X-KDE-PluginInfo-Author=artt
 X-KDE-PluginInfo-Version=1.0
 X-KDE-PluginInfo-License=GPL-3.0-or-later
 """)
-    write("Clayrc", f"""[General]
+    write(f"{NAME}rc", f"""[General]
 TitleAlignment=Left
 TitleVerticalAlignment=Center
 Animation=150
-ActiveTextColor=20,20,19,255
-InactiveTextColor=20,20,19,140
+ActiveTextColor={VARIANTS[NAME]["text"]},255
+InactiveTextColor={VARIANTS[NAME]["text"]},140
 UseTextShadow=false
 ActiveTextShadowColor=255,255,255,255
 InactiveTextShadowColor=255,255,255,255
@@ -180,8 +187,9 @@ PaddingLeft=0
 
 
 if __name__ == "__main__":
-    decoration()
-    for n in GLYPH:
-        button(n)
-    metadata()
-    print(f"wrote {OUT}")
+    for NAME in VARIANTS:
+        decoration()
+        for n in GLYPH:
+            button(n)
+        metadata()
+        print(f"wrote {THEMES / NAME}")
