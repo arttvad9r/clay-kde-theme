@@ -131,6 +131,8 @@ sudo pacman -S inter-font
 
 ## fastfetch
 
+Firefox рисует кнопки окна сам (при GTK-теме Breeze — сплошной круг и розовое закрытие). Если Firefox установлен, `install.sh` кладёт `extras/firefox/userChrome.css` в его профиль по умолчанию и включает `toolkit.legacyUserProfileCustomizations.stylesheets` в `user.js`; нужен перезапуск Firefox. Чужой `userChrome.css` сохраняется в бэкап, `uninstall.sh` удаляет только файлы Clay.
+
 `extras/fastfetch/` — конфиг и логотип Arch в четырёх тонах Clay — Manilla, Kraft, Clay, глубокий Clay (`clay-arch.svg` → `clay-arch.png`). Подписи и заголовок — жирный ANSI `light_red` (Clay), значки — основной цвет текста, рамка и разделитель — `light_black`, поэтому цвета берутся из палитры kitty и переключаются вместе с ней. Конфиг личный, `install.sh` его не ставит:
 
 ```bash

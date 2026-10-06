@@ -35,6 +35,17 @@ for f in "${XDG_CONFIG_HOME:-$HOME/.config}"/kitty/{light,dark,no-preference}-th
   fi
 done
 
+for root in "${XDG_CONFIG_HOME:-$HOME/.config}/mozilla/firefox" "$HOME/.mozilla/firefox"; do
+  for f in "$root"/*/chrome/userChrome.css; do
+    [ -f "$f" ] && grep -q 'Clay:' "$f" && rm -f "$f"
+  done
+  for f in "$root"/*/user.js; do
+    [ -f "$f" ] || continue
+    sed -i '/clay-kde-theme/d' "$f"
+    [ -s "$f" ] || rm -f "$f"
+  done
+done
+
 if command -v kbuildsycoca6 >/dev/null 2>&1; then
   kbuildsycoca6 --noincremental >/dev/null 2>&1 || true
 fi
