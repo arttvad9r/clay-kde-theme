@@ -17,8 +17,8 @@ widgetStyle=Breeze
 LayoutName=clay_grid
 
 [kwinrc][org.kde.kdecoration2]
-library=org.kde.breeze
-theme=Breeze
+library=org.kde.kwin.aurorae
+theme=__aurorae__svg__Clay
 
 [plasmarc][Theme]
 name=clay

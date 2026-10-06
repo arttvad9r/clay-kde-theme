@@ -675,12 +675,13 @@ def action_icons():
         "list-add": lines("M12 5v14M5 12h14"),
         "list-remove": lines("M5 12h14"),
         # Filled shapes: GTK recolors symbolic icons by forcing `fill`, which would turn strokes into blobs.
-        "window-close": tray(fill("M5.93 7.07 7.07 5.93 18.07 16.93 16.93 18.07z")
-                             + fill("M16.93 5.93 18.07 7.07 7.07 18.07 5.93 16.93z")),
-        "window-minimize": tray(fill("M6 11.2h12v1.6H6z")),
-        "window-maximize": tray(fill("M7.5 6h9A1.5 1.5 0 0 1 18 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 16.5v-9A1.5 1.5 0 0 1 7.5 6zM7.6 7.6v8.8h8.8V7.6z", eo=True)),
-        "window-restore": tray(fill("M8 8.5V5.5H18.5V16H15.5V14.4H16.9V7.1H9.6V8.5z")
-                               + fill("M5.5 8.5h10v10h-10zM7.1 10.1v6.8h6.8v-6.8z", eo=True)),
+        # Strokes are 1.5 px at 16 px (Firefox draws them at that size) with the outer edge on a pixel.
+        "window-close": tray(fill("M5.2 6.8 6.8 5.2 18.8 17.2 17.2 18.8z")
+                             + fill("M18.8 6.8 17.2 5.2 5.2 17.2 6.8 18.8z")),
+        "window-minimize": tray(fill("M6 12h12v2.25H6z")),
+        "window-maximize": tray(fill("M6 6h12v12H6zM8.25 8.25v7.5h7.5v-7.5z", eo=True)),
+        "window-restore": tray(fill("M7.5 9V6H18V16.5H15V14.25H15.75V8.25H9.75V9z")
+                               + fill("M4.5 9h10.5v10.5H4.5zM6.75 11.25v6h6v-6z", eo=True)),
         "window-pin": lines(PIN),
         "window-unpin": tray(line(PIN) + line(SLASH)),
         "tab-new": lines(FRAME + "M12 9v6M9 12h6"),

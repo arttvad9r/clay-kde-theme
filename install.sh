@@ -24,6 +24,8 @@ targets=(
   "org.kde.syntax-highlighting/themes/clay-light.theme"
   "org.kde.syntax-highlighting/themes/clay-dark.theme"
   "kwin/tabbox/clay_grid"
+  "aurorae/themes/Clay"
+  "aurorae/themes/ClayDark"
 )
 
 stamp="$(date +%Y%m%d-%H%M%S)"
@@ -60,6 +62,30 @@ if command -v kitty >/dev/null 2>&1; then
     fi
     cp "$here/extras/kitty/${pair#*:}.conf" "$dst"
   done
+fi
+
+# Firefox draws its own window controls (Breeze theme: solid circle, pink close); restyle them in the default profile.
+ff_root=""
+for d in "${XDG_CONFIG_HOME:-$HOME/.config}/mozilla/firefox" "$HOME/.mozilla/firefox"; do
+  [ -f "$d/profiles.ini" ] && { ff_root="$d"; break; }
+done
+if [ -n "$ff_root" ]; then
+  ff_path="$(awk -F= '/^\[Install/{i=1} i&&/^Default=/{print $2; exit}' "$ff_root/profiles.ini")"
+  [ -n "$ff_path" ] || ff_path="$(awk -F= '/^\[Profile/{p=""} /^Path=/{p=$2} /^Default=1/{print p; exit}' "$ff_root/profiles.ini")"
+  ff_profile="$ff_root/$ff_path"
+  if [ -n "$ff_path" ] && [ -d "$ff_profile" ]; then
+    mkdir -p "$ff_profile/chrome"
+    dst="$ff_profile/chrome/userChrome.css"
+    if [ -e "$dst" ] && ! grep -q 'Clay:' "$dst"; then
+      mkdir -p "$backup/firefox"
+      cp -a "$dst" "$backup/firefox/"
+      backed_up=true
+    fi
+    cp "$here/extras/firefox/userChrome.css" "$dst"
+    pref='user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true); // clay-kde-theme'
+    grep -qF 'clay-kde-theme' "$ff_profile/user.js" 2>/dev/null || printf '%s\n' "$pref" >> "$ff_profile/user.js"
+    echo "Firefox: window controls styled in $ff_profile (restart Firefox)."
+  fi
 fi
 
 if command -v kbuildsycoca6 >/dev/null 2>&1; then

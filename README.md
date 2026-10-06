@@ -99,7 +99,7 @@ Dark:
 - `kwriteconfig6`
 - `kbuildsycoca6`
 
-Стиль виджетов и декорация окон — штатный Breeze (ставится с Plasma), цвета, иконки, курсоры и Plasma style — Clay. Ничего, кроме Plasma, ставить не нужно.
+Стиль виджетов — штатный Breeze (ставится с Plasma), декорация окон (Aurorae, `tools/gen_aurorae.py`), цвета, иконки, курсоры и Plasma style — Clay. Ничего, кроме Plasma, ставить не нужно.
 
 Рекомендуется шрифт Inter:
 
@@ -130,6 +130,8 @@ sudo pacman -S inter-font
 Если установлен kitty, `install.sh` кладёт `extras/kitty/clay-light.conf` и `clay-dark.conf` в `~/.config/kitty/` как `light-theme.auto.conf`, `dark-theme.auto.conf` и `no-preference-theme.auto.conf`. kitty (≥ 0.38) сам переключает их по светлой/тёмной схеме Plasma — отдельно применять ничего не нужно. Эти файлы перекрывают цвета из `kitty.conf`; чужие `*.auto.conf` сохраняются в бэкап, `uninstall.sh` удаляет только файлы Clay.
 
 ## fastfetch
+
+Firefox рисует кнопки окна сам (при GTK-теме Breeze — сплошной круг и розовое закрытие). Если Firefox установлен, `install.sh` кладёт `extras/firefox/userChrome.css` в его профиль по умолчанию и включает `toolkit.legacyUserProfileCustomizations.stylesheets` в `user.js`; нужен перезапуск Firefox. Чужой `userChrome.css` сохраняется в бэкап, `uninstall.sh` удаляет только файлы Clay.
 
 `extras/fastfetch/` — конфиг и логотип Arch в четырёх тонах Clay — Manilla, Kraft, Clay, глубокий Clay (`clay-arch.svg` → `clay-arch.png`). Подписи и заголовок — жирный ANSI `light_red` (Clay), значки — основной цвет текста, рамка и разделитель — `light_black`, поэтому цвета берутся из палитры kitty и переключаются вместе с ней. Конфиг личный, `install.sh` его не ставит:
 
