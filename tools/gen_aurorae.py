@@ -41,11 +41,11 @@ def frame(prefix, rounded):
     r = R if rounded else 0
     o = 'class="ColorScheme-Text" fill="none" stroke="currentColor" stroke-opacity=".16"'
     f = 'class="ColorScheme-Background" fill="currentColor"'
-    sizes = {  # name: (x, y, w, h)
-        "topleft": (0, 0, M, TOP), "top": (M, 0, M, TOP), "topright": (2 * M, 0, M, TOP),
-        "left": (0, TOP, M, M), "center": (M, TOP, M, M), "right": (2 * M, TOP, M, M),
-        "bottomleft": (0, TOP + M, M, M), "bottom": (M, TOP + M, M, M), "bottomright": (2 * M, TOP + M, M, M),
-    }
+    # Middle slices are 1 px so tiling them can't leave antialiasing seams.
+    xs, ws = [0, M, M + 1], [M, 1, M]
+    ys, hs = [0, TOP, TOP + 1], [TOP, 1, M]
+    names = [["topleft", "top", "topright"], ["left", "center", "right"], ["bottomleft", "bottom", "bottomright"]]
+    sizes = {names[j][i]: (xs[i], ys[j], ws[i], hs[j]) for j in range(3) for i in range(3)}
     out = []
     for name, (x, y, w, h) in sizes.items():
         # Fill: the piece rectangle, with the outer top corner cut round.
@@ -71,7 +71,7 @@ def decoration():
     body = frame("decoration", True) + frame("decoration-maximized", False)
     # Blur/shape mask: the full 3x3 frame, same slicing.
     body += frame("mask", True).replace('class="ColorScheme-Background" fill="currentColor"', 'fill="#000"')
-    write("decoration.svgz", svg(3 * M, TOP + 2 * M, body))
+    write("decoration.svgz", svg(2 * M + 1, TOP + M + 1, body))
 
 
 # Glyphs, drawn in a W x W box around (12, 12).
