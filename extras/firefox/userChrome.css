@@ -1,0 +1,20 @@
+/* Clay: window controls in Firefox's own titlebar.
+   Firefox draws these itself (glyphs come from the icon theme); with the Breeze
+   GTK theme it makes the hover a solid circle and the close button pink. */
+.titlebar-button > .toolbarbutton-icon {
+  border-radius: 6px !important;
+}
+.titlebar-button:hover > .toolbarbutton-icon {
+  color: inherit !important;
+  background-color: color-mix(in srgb, currentColor 10%, transparent) !important;
+}
+.titlebar-button:hover:active > .toolbarbutton-icon {
+  background-color: color-mix(in srgb, currentColor 18%, transparent) !important;
+}
+.titlebar-close:hover > .toolbarbutton-icon {
+  color: #FAF9F5 !important;
+  background-color: #D97757 !important;
+}
+.titlebar-close:hover:active > .toolbarbutton-icon {
+  background-color: #C6613F !important;
+}
