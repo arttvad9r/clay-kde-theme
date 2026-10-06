@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- Window decoration: own Aurorae themes Clay and Clay Dark (`tools/gen_aurorae.py`): thin glyph buttons, radius 8, Clay close button on hover; set by the Global Themes and the apply scripts. Not yet part of the store release.
+- Firefox: `extras/firefox/userChrome.css` restyles its own window controls; `install.sh` puts it in the default profile.
+- Icons: `window-*` symbolic icons are filled shapes on a 1.5 grid (GTK forced fill turned the stroked ones into blobs, the close icon vanished).
+- Radius 5 for buttons and line edits, like Breeze widgets (windows stay 8).
+- Lock screen: clock text in Clay brown (`Colors:Complementary`).
+
 ## 1.1.0
 
 - KDE Store: Global Themes install their components (Plasma style, icons, cursors, wallpaper, Alt+Tab) through `X-KPackage-Dependencies`; Clay also installs Clay Dark.

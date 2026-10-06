@@ -46,8 +46,8 @@ kitty/fastfetch extras. Plasma Login Manager is supported (`install-login.sh`).
 
 ## Requirements
 
-KDE Plasma 6.7+ (tested on 6.7.5, Wayland). Widget style and window decoration are the stock
-Breeze, nothing else to install. Optional: the Inter font.
+KDE Plasma 6.7+ (tested on 6.7.5, Wayland). Widget style is the stock Breeze; the window
+decoration is Clay's own Aurorae theme (ships with Plasma), nothing else to install. Optional: the Inter font.
 
 ## Install
 

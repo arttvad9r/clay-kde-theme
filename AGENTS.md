@@ -37,4 +37,6 @@ Warm minimal theme for KDE Plasma 6 (Light/Dark): color schemes, Plasma style, g
 
 ## Status
 - Done: v1.0 palette and icon set, Plasma Login Manager, kitty/fastfetch, tray and action icons, KDE app tiles, Plasma tasks/button/lineedit, cursors, Kate themes, KDE Store release (10 items; Global Themes pull their components and Clay pulls Clay Dark).
+- Done on `dev`, unreleased: Aurorae window decoration (Clay/Clay Dark), Firefox userChrome, filled `window-*` icons, radius 5, lock screen clock color. Next: add Aurorae to `build-release.sh`, `store/ids.json` and the store listing; check Dark end to end.
+- Not possible without a custom Plasma shell package: lock screen layout and the clock glow (they live in `org.kde.plasma.desktop`, not in the Global Theme).
 - Gaps (fall back to Breeze): tray gaps (fall back to Breeze): RTL variants; mobile generation (LTE…) and power-profile badges are aliased to the plain glyph.
