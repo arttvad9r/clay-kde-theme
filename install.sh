@@ -24,6 +24,7 @@ targets=(
   "org.kde.syntax-highlighting/themes/clay-light.theme"
   "org.kde.syntax-highlighting/themes/clay-dark.theme"
   "kwin/tabbox/clay_grid"
+  "aurorae/themes/Clay"
 )
 
 stamp="$(date +%Y%m%d-%H%M%S)"
