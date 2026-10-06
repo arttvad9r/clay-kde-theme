@@ -6,5 +6,6 @@
 .ColorScheme-NegativeText { color:#B5473A; }
 </style>
 </defs>
-<path d="M6.5 6.5l11 11M17.5 6.5l-11 11" fill="none" stroke="currentColor" class="ColorScheme-Text" opacity="0.86" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.93 7.07 7.07 5.93 18.07 16.93 16.93 18.07z" fill="currentColor" class="ColorScheme-Text" opacity="0.86"/>
+<path d="M16.93 5.93 18.07 7.07 7.07 18.07 5.93 16.93z" fill="currentColor" class="ColorScheme-Text" opacity="0.86"/>
 </svg>
