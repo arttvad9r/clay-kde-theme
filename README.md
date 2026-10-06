@@ -99,7 +99,7 @@ Dark:
 - `kwriteconfig6`
 - `kbuildsycoca6`
 
-Стиль виджетов и декорация окон — штатный Breeze (ставится с Plasma), цвета, иконки, курсоры и Plasma style — Clay. Ничего, кроме Plasma, ставить не нужно.
+Стиль виджетов — штатный Breeze (ставится с Plasma), декорация окон (Aurorae, `tools/gen_aurorae.py`), цвета, иконки, курсоры и Plasma style — Clay. Ничего, кроме Plasma, ставить не нужно.
 
 Рекомендуется шрифт Inter:
 

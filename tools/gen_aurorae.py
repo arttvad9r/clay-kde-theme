@@ -36,10 +36,10 @@ def write(name, text):
         else (OUT / name).write_text(text)
 
 
-def frame(prefix, rounded):
+def frame(prefix, rounded, line_op=.16):
     """3x3 slices of the titlebar frame; origin of the sheet is (0, 0)."""
     r = R if rounded else 0
-    o = 'class="ColorScheme-Text" fill="none" stroke="currentColor" stroke-opacity=".16"'
+    o = f'class="ColorScheme-Text" fill="none" stroke="currentColor" stroke-opacity="{line_op}"'
     f = 'class="ColorScheme-Background" fill="currentColor"'
     # Middle slices are 1 px so tiling them can't leave antialiasing seams.
     xs, ws = [0, M, M + 1], [M, 1, M]
@@ -74,7 +74,8 @@ def frame(prefix, rounded):
 
 
 def decoration():
-    body = frame("decoration", True) + frame("decoration-maximized", False)
+    body = (frame("decoration", True) + frame("decoration-maximized", False)
+            + frame("decoration-inactive", True, .08) + frame("decoration-inactive-maximized", False, .08))
     # Blur/shape mask: the full 3x3 frame, same slicing.
     body += frame("mask", True).replace('class="ColorScheme-Background" fill="currentColor"', 'fill="#000"')
     write("decoration.svgz", svg(2 * M + 1, TOP + M + 1, body))

@@ -23,6 +23,7 @@ check_file "$data_home/icons/clay-icons/index.theme"
 check_file "$data_home/icons/clay-cursors/index.theme"
 check_file "$data_home/org.kde.syntax-highlighting/themes/clay-light.theme"
 check_file "$data_home/kwin/tabbox/clay_grid/metadata.json"
+check_file "$data_home/aurorae/themes/Clay/Clayrc"
 check_file "$data_home/wallpapers/Clay/metadata.json"
 check_file "$data_home/wallpapers/ClayDark/metadata.json"
 
