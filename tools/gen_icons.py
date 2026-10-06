@@ -358,9 +358,10 @@ def dot(cx, cy, r, op=1, color=None):
     return f'<circle cx="{cx}" cy="{cy}" r="{r}" {paint} opacity="{round(.86 * op, 3):g}"/>\n'
 
 
-def fill(d, op=1, color=None):
+def fill(d, op=1, color=None, eo=False):
     paint = f'fill="{color}"' if color else 'fill="currentColor" class="ColorScheme-Text"'
-    return f'<path d="{d}" {paint} opacity="{round(.86 * op, 3):g}"/>\n'
+    rule = ' fill-rule="evenodd"' if eo else ''
+    return f'<path d="{d}" {paint}{rule} opacity="{round(.86 * op, 3):g}"/>\n'
 
 
 def tray(body):
@@ -673,10 +674,13 @@ def action_icons():
         "folder-new": lines(FOLDER_LINE + "M12 10.5v6M9 13.5h6"),
         "list-add": lines("M12 5v14M5 12h14"),
         "list-remove": lines("M5 12h14"),
-        "window-close": lines(X),
-        "window-minimize": lines("M6 9.5l6 6 6-6"),
-        "window-maximize": lines("M6 14.5l6-6 6 6"),
-        "window-restore": lines("M12 5.5 18.5 12 12 18.5 5.5 12z"),
+        # Filled shapes: GTK recolors symbolic icons by forcing `fill`, which would turn strokes into blobs.
+        "window-close": tray(fill("M5.93 7.07 7.07 5.93 18.07 16.93 16.93 18.07z")
+                             + fill("M16.93 5.93 18.07 7.07 7.07 18.07 5.93 16.93z")),
+        "window-minimize": tray(fill("M6 11.2h12v1.6H6z")),
+        "window-maximize": tray(fill("M7.5 6h9A1.5 1.5 0 0 1 18 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 16.5v-9A1.5 1.5 0 0 1 7.5 6zM7.6 7.6v8.8h8.8V7.6z", eo=True)),
+        "window-restore": tray(fill("M8 8.5V5.5H18.5V16H15.5V14.4H16.9V7.1H9.6V8.5z")
+                               + fill("M5.5 8.5h10v10h-10zM7.1 10.1v6.8h6.8v-6.8z", eo=True)),
         "window-pin": lines(PIN),
         "window-unpin": tray(line(PIN) + line(SLASH)),
         "tab-new": lines(FRAME + "M12 9v6M9 12h6"),
