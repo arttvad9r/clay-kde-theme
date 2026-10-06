@@ -118,9 +118,9 @@ def button(name):
         close_hot = name == "close" and st in ("hover", "pressed")
         bg = ""
         if close_hot:
-            bg = f'<rect x="1" y="1" width="{W - 2}" height="{W - 2}" rx="6" fill="{CLAY}" opacity="{1 if st == "hover" else .85}"/>'
+            bg = f'<rect x="1" y="1" width="{W - 2}" height="{W - 2}" rx="5" fill="{CLAY}" opacity="{1 if st == "hover" else .85}"/>'
         elif bop:
-            bg = (f'<rect x="1" y="1" width="{W - 2}" height="{W - 2}" rx="6" class="ColorScheme-Text" '
+            bg = (f'<rect x="1" y="1" width="{W - 2}" height="{W - 2}" rx="5" class="ColorScheme-Text" '
                   f'fill="currentColor" opacity="{bop}"/>')
         paint = (f'fill="none" stroke="{ON_CLAY}"' if close_hot
                  else 'class="ColorScheme-Text" fill="none" stroke="currentColor"')

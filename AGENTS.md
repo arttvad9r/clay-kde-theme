@@ -6,7 +6,7 @@ Warm minimal theme for KDE Plasma 6 (Light/Dark): color schemes, Plasma style, g
 - `payload/` — everything installed into `~/.local/share` (`install.sh` replaces each component wholesale, with a backup).
 - `payload/icons/clay-icons` — overlay icon theme, `Inherits=breeze`.
 - `tools/gen_icons.py` — generates folders, mimetypes, devices, app tiles, tray (`status/scalable`) and action (`actions/scalable`) icons, device glyphs for popups (phone, laptop, keyboard, mouse, headset), Settings modules (`preferences-*`: glyph ≤24 px, card above), emblems, Meta+P OSD (`applets/scalable`). Edit the generator, not the SVGs. `actions/<size>/system-*` are hand-made.
-- `tools/gen_plasma_widgets.py` — Plasma style `tasks`, `button`, `lineedit` (9-slice, radius 6; margin hints copied from Breeze). Other widgets are hand-tweaked Breeze copies.
+- `tools/gen_plasma_widgets.py` — Plasma style `tasks`, `button`, `lineedit` (9-slice, radius 5 like Breeze widgets; margin hints copied from Breeze). Other widgets are hand-tweaked Breeze copies.
 - `tools/gen_aurorae.py` — window decorations `payload/aurorae/themes/Clay` and `ClayDark` (SVG, colors from the scheme; the rc title text color is why Dark is a separate theme): thin glyph buttons, rounded corners, 5 px bottom border (Aurorae can't round the client, so the arc lives in the border).
 - `tools/gen_cursors.py` — `clay-cursors` recolored from installed `breeze_cursors` (needs rsvg-convert, magick).
 - `payload/org.kde.syntax-highlighting/themes` — Kate/KWrite themes, selected by `apply.sh`.

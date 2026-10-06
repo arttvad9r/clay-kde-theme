@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate Clay Plasma style frames: tasks, button and lineedit.
 
-Frames are 9-slice sets of pieces drawn from rounded rects, radius 6.
+Frames are 9-slice sets of pieces drawn from rounded rects, radius 5, like Breeze.
 Colors come from ColorScheme classes, so one file serves Clay and Clay Dark (clay-dark falls back to clay). Content margins
 (-hint-*-margin) keep Breeze's values so layouts don't move.
 
@@ -109,7 +109,7 @@ def write(name, parts, w, h):
     (OUT / f"{name}.svgz").write_bytes(gzip.compress(svg.encode(), mtime=0))
 
 
-R = 6
+R = 5
 BORDER = 1
 FOCUS = 2
 
