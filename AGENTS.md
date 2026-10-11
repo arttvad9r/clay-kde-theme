@@ -1,42 +1,25 @@
 # Clay KDE Theme
 
-Warm minimal theme for KDE Plasma 6 (Light/Dark): color schemes, Plasma style, global themes, icon overlay, cursors, Kate syntax themes, wallpapers, splash, logout, KWin Alt+Tab, optional kitty/fastfetch extras. User-facing docs are in `README.md` (Russian).
+Warm minimal KDE Plasma 6 Light/Dark theme. User-facing docs are in `README.md`.
 
-## Layout
-- `payload/` — everything installed into `~/.local/share` (`install.sh` replaces each component wholesale, with a backup).
-- `payload/icons/clay-icons` — overlay icon theme, `Inherits=breeze`.
-- `tools/gen_icons.py` — generates folders, mimetypes, devices, app tiles, tray (`status/scalable`) and action (`actions/scalable`) icons, device glyphs for popups (phone, laptop, keyboard, mouse, headset), Settings modules (`preferences-*`: glyph ≤24 px, card above), emblems, Meta+P OSD (`applets/scalable`). Edit the generator, not the SVGs. `actions/<size>/system-*` are hand-made.
-- `tools/gen_plasma_widgets.py` — Plasma style `tasks`, `button`, `lineedit` (9-slice, radius 5 like Breeze widgets; margin hints copied from Breeze). Other widgets are hand-tweaked Breeze copies.
-- `tools/gen_aurorae.py` — window decorations `payload/aurorae/themes/Clay` and `ClayDark` (SVG, colors from the scheme; the rc title text color is why Dark is a separate theme): thin glyph buttons, rounded corners, 5 px bottom border (Aurorae can't round the client, so the arc lives in the border).
-- `tools/gen_cursors.py` — `clay-cursors` recolored from installed `breeze_cursors` (needs rsvg-convert, magick).
-- `payload/org.kde.syntax-highlighting/themes` — Kate/KWrite themes, selected by `apply.sh`.
-- `build-release.sh` — full tarball plus per-item KDE Store archives in `dist/store/` (`store/ids.json` = store content ids → `X-KPackage-Dependencies` via `tools/store_deps.py`). Publishing steps: `docs/store-listing.md`.
-- `scripts/apply.sh` via `apply-light.sh` / `apply-dark.sh` — switches Plasma settings. Widget style is stock Breeze; window decoration is Aurorae Clay (both set in the Global Themes `defaults` and by `apply.sh`).
+## Layout and generation
+- `payload/` contains installed files. `install.sh` replaces listed components wholesale with backup; never list a shared directory when only one file should be replaced.
+- Generated assets must be changed through their generators: `tools/gen_icons.py`, `gen_plasma_widgets.py`, `gen_aurorae.py`, `gen_cursors.py`; do not hand-edit their generated SVGs.
+- Kate themes live in `payload/org.kde.syntax-highlighting/themes`; release archives come from `build-release.sh`; store metadata is in `docs/store-listing.md` and `store/ids.json`.
 
 ## Commands
-- Regenerate: `python3 tools/gen_icons.py`, `python3 tools/gen_plasma_widgets.py`, `python3 tools/gen_cursors.py`
-- Install: `./install.sh`, then `./apply-light.sh` or `./apply-dark.sh`
-- Check install: `./verify.sh`
-- Check an icon lookup: `kiconfinder6 <name>` ignores size; for a real size use KIconLoader::iconPath(name, -size) in a tiny C++ tool
-- See icon/Plasma style changes: `rm -f ~/.cache/icon-cache.kcache ~/.cache/plasma_theme_clay*.kcache; systemctl --user restart plasma-plasmashell`
-- Measure SVG element bounds as KSvg sees them: build a tiny QSvgRenderer::boundsOnElement tool (no Python Qt bindings installed)
+- Regenerate with the relevant `python3 tools/gen_*.py`; install via `./install.sh`; apply via `./apply-light.sh` / `./apply-dark.sh`; verify with `./verify.sh`.
+- For visual cache refresh: `rm -f ~/.cache/icon-cache.kcache ~/.cache/plasma_theme_clay*.kcache; systemctl --user restart plasma-plasmashell`.
+- Check actual icon resolution at the requested size; `kiconfinder6` alone is insufficient for size-specific fallbacks.
 
-## Pitfalls
-- KIconLoader falls back by dropping name suffixes: a missing `video-display-brightness` or `audio-headset` silently resolves to the mimetype `video-x-generic`/`audio-x-generic`. Check applet icons at their real size, not just by name; applets in 6.7 are compiled into `.so`, so list their icon names with `strings -e l`, and preview one with `plasmawindowed org.kde.plasma.<id>` + `spectacle -a`.
-- Splash (`ksplashqml`): stages arrive in order, 6 = desktop ready and the process exits; stage 5 comes BEFORE the desktop is drawn, and the window is transparent. Never fade the whole root at stage 5 (black flash between splash and desktop); keep it opaque, fade only content. Test: `ksplashqml --test --nofork <lnf dir> &` (stage +1 every 2 s) and screenshot around stage 5.
-- Store installs run no scripts: only `contents/defaults` + dependencies apply. AccentColor reset, Kate theme, Inter come only from `apply.sh`.
-- Never commit screenshots of a live desktop (personal windows, devices). `docs/screenshots` (README) and the store galleries are taken in a nested `kwin_wayland --virtual` session with a throwaway HOME; Dolphin's Devices groups are hidden there, since Solid still lists the host's drives.
-- Plasma 6 tray icons come only from the icon theme (`KDE::icon`); `icons/*.svgz` in a Plasma style are ignored.
-- Monochrome icons use the `ColorScheme-Text` stylesheet class so Plasma recolors them; Clay `#D97757` is a literal accent for warnings/news only.
-- index.theme Context must be a known one (Status, Actions, Applications…); an unknown Context such as `Applets` makes KIconLoader skip the dir.
-- Applets request both `name` and `name-symbolic`; the generator writes both (symlinks). Menu categories (`applications-*`) get only `-symbolic`, so colorful ones elsewhere stay Breeze.
-- Task manager prefixes: `south-`/plain, `north-`, `west-`, `east-`; hover looks up `<state>-hover` (`launcher-hover`, `focus-hover`…) before `hover`.
-- install.sh replaces listed paths wholesale: list single files for shared dirs (syntax themes), never the dir.
-
-- GTK/Electron CSD buttons are the GTK module's assets (`~/.config/gtk-3.0`, generated by kded `gtkconfig`) plus our `window-*-symbolic` icons; GTK forces `fill` on symbolic icons, so those icons must be filled shapes, never strokes. Firefox draws its own titlebar buttons (glyphs = our icon theme, hover = Firefox CSS, circle + pink close under GTK Breeze), so they are restyled by `extras/firefox/userChrome.css`, installed by `install.sh`; Electron apps (Claude, Codex) draw their own. Never reload kded `gtkconfig` or rerun apply scripts while the user's apps are open: GTK settings changes crashed Codex.
+## Important pitfalls
+- KIconLoader may silently drop name suffixes and fall back to unrelated icons; verify applet icons at real size. Plasma tray icons come from the icon theme, not `icons/*.svgz` in Plasma style.
+- Monochrome icons use `ColorScheme-Text`; only intentional warning/news accents use literal Clay accent. `index.theme` Context must be a valid KDE context.
+- Splash stage 5 occurs before the desktop is drawn: never fade the whole root there; only fade content. Test with `ksplashqml --test --nofork <lnf dir>` and screenshots.
+- Store installs execute no scripts; behavior that depends on `apply.sh` is not part of store-only installation.
+- Screenshots of a live desktop must never be committed; store screenshots use a nested throwaway `kwin_wayland --virtual` session.
+- GTK symbolic window buttons must be filled shapes. Firefox titlebar styling is handled by `extras/firefox/userChrome.css`; Electron apps draw their own.
+- Do not reload kded `gtkconfig` or rerun apply scripts while Claude/Codex or other Electron apps are open; settings reload has crashed Codex.
 
 ## Status
-- Done: v1.0 palette and icon set, Plasma Login Manager, kitty/fastfetch, tray and action icons, KDE app tiles, Plasma tasks/button/lineedit, cursors, Kate themes, KDE Store release (10 items; Global Themes pull their components and Clay pulls Clay Dark).
-- Done on `dev`, unreleased: Aurorae window decoration (Clay/Clay Dark), Firefox userChrome, filled `window-*` icons, radius 5, lock screen clock color. Next: add Aurorae to `build-release.sh`, `store/ids.json` and the store listing; check Dark end to end.
-- Not possible without a custom Plasma shell package: lock screen layout and the clock glow (they live in `org.kde.plasma.desktop`, not in the Global Theme).
-- Gaps (fall back to Breeze): tray gaps (fall back to Breeze): RTL variants; mobile generation (LTE…) and power-profile badges are aliased to the plain glyph.
+Released v1.0 base theme exists; current unreleased work and store gaps are tracked by git and `docs/store-listing.md`, not duplicated here.
