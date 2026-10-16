@@ -25,7 +25,3 @@ Warm minimal KDE Plasma 6 Light/Dark theme. User-facing docs are in `README.md`.
 - `main` holds released code only; every merge into `main` is a release tagged `vX.Y.Z`.
 - `dev` is the integration branch and must always build and pass checks.
 - Work in `feat/<name>` / `fix/<name>` from `dev`; several branches may run in parallel. Merge verified work into `dev`, then delete the branch.
-- Push, tags and releases only with the owner's explicit permission.
-
-## Status
-Released v1.0 base theme exists; current unreleased work and store gaps are tracked by git and `docs/store-listing.md`, not duplicated here.

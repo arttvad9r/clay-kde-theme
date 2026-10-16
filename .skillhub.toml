@@ -1,0 +1,29 @@
+version = 1
+updated_at = "2026-10-16T06:40:38.798233+00:00"
+profiles = ["design"]
+explicit_skills = []
+targets = ["claude", "codex"]
+
+[[skills]]
+name = "impeccable"
+source = "impeccable"
+revision = "5bf0a069dc857e1b5f4b090e004d9d5b231416ca"
+sha256 = "977aa81d50cc637cbbc90aad6920d766635cad029e16727506cd0287c0583d07"
+
+[[skills]]
+name = "create-design-md"
+source = "ui-skills"
+revision = "fdd6c09dd866354a627ddf3fa46b7b01d421176d"
+sha256 = "9100cf1cf18b5dfee479b0365c4beaca93048c637965d6cf6bf2146f460427fe"
+
+[[skills]]
+name = "improve-ui"
+source = "ui-skills"
+revision = "fdd6c09dd866354a627ddf3fa46b7b01d421176d"
+sha256 = "59c575e5c842e9d24f1700ae781c4797205792484e7ff417d3321ac808b32c8d"
+
+[[skills]]
+name = "ui-ux-pro-max"
+source = "ui-ux-pro-max"
+revision = "56ea9cf174ed86786187daa9de0e6247cb0747e4"
+sha256 = "0d3176d6ff898a7d1c5b96e1e2da06135e033c392c8a766051ad57d1f3e7cd30"
